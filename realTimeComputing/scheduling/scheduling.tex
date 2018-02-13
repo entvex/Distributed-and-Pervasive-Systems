@@ -8,7 +8,7 @@ Have the basic definition written down (at least the Task/J one)
 
 
 In scheduling the aim is to meet all hard deadlines and handle soft deadlines of jobs in the best possible manner and avoid deadlocks while doing so. The arrival time of a job is the moment in time it arrives at a processor, while the
-release time of a job is the moment in time it becomes available for execution. A task can have different job types and such as perodic, sporadic and Aperiodic. A task is a set of jobs known at the start of the system or trigger by a external event.
+release time of a job is the moment in time it becomes available for execution. A task can have different job types and such as perodic, sporadic and Aperiodic. A task is a set of jobs known at the start of the system or triggered by a external event.
 A periodic task is defined by three parameters:
 %TODO: Tror du der er en måde at skubbe dem mere sammen, så der er mere plads?
 \begin{itemize}
@@ -18,18 +18,23 @@ A periodic task is defined by three parameters:
 \end{itemize}
 and is written as (\textit{r},\textit{p},\textit{e})
 
-
-
-
-- Schedulers
-Put in illustrations/drawings from exercises. We need a few examples
 \subsection{Rate-monotonic scheduler}
 
+
+%Example goes here
 \subsection{Deadline-first scheduler}
+%noget af dette er taget fra bogen, men det er menga svlrt at koge mere ned synes jeg.
+This scheduling strategy will give a higher priority to jobs if its deadline is
+earlier. In case of preemptive jobs and no competition for resources, this scheduler
+is optimal, in the sense that if utilization at a processor does not exceed one, then
+periodic jobs will be scheduled in such a way that no deadlines are missed.
+
+%Example goes here
 
 \subsection{Least-slacktime-first scheduler}
 
 
+%Example goes here
 \subsection{Resource control}
 Write about resource control/deadlock
 Priority inheirtance
