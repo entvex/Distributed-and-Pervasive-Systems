@@ -22,7 +22,7 @@ We define three periodic jobs; $J_1$ with a period of 20 and a execution time of
 \begin{figure}[h!]\label{}
 	\centering
 	\includegraphics[scale=0.5]{realTimeComputing/fig/rate-mono.png}
-	\caption{Example of rate-monotonic scheduling.}
+	\caption{Example of rate-monotonic scheduling. Their priority is $J_2 > J_3 > J_1$. }
 	\label{fig:rateMonotonicExample}
 \end{figure}
 
@@ -34,7 +34,7 @@ earlier. In case of preemptive jobs and no competition for resources, this sched
 is optimal, in the sense that if utilization at a processor does not exceed one, then
 periodic jobs will be scheduled in such a way that no deadlines are missed.\footnote{\cite{Fokkink1965} p.184}
 
-The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample}, can be viewed as using Earliest deadline first scheduler. The first job to be executed is $J_2$ because it has earliest deadline followed by $J_1$ and $J_3$.
+The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample}, can be viewed as using Earliest deadline first scheduler. This approach is dynamic meaning it evaluates the jobs each time unit. The first job to be executed is $J_2$ because it has earliest deadline followed by $J_1$ and $J_3$.
 
 \subsection{Least-slacktime-first scheduler}
 This scheduling strategy gives higher priority to jobs wit less slack (Idle time). This scheduler is a good choice if utilization at a processor does not exceed one. In this case the periodic jobs will be scheduled in such a way that no deadlines are missed.\footnote{\cite{Fokkink1965} p.184}
