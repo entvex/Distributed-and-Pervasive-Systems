@@ -14,7 +14,10 @@ and is written as (\textit{r},\textit{p},\textit{e},\textit{d})
 \subsection{Rate-monotonic scheduler}
 The rate-monotonic scheduling strategy gives a higher priority, to periodic jobs with a shorter period. Because of the static nature of the scheduler, it is easy to compute and predict.\footnote{\cite{Fokkink1965} p.183}
 
+
+--- This can be removed if we need space?
 We define three periodic jobs; $J_1$ with a period of 20 and a execution time of 3, $J_2$ with a period of 5 and a execution time of 2, $J_1$ with a period of 10 and a execution time of 2. All with a release time of 0. on Figure \ref{fig:rateMonotonicExample} we see the outcome using a rate-monotonic scheduler.
+---
 
 \begin{figure}[h!]\label{}
 	\centering
@@ -26,18 +29,25 @@ We define three periodic jobs; $J_1$ with a period of 20 and a execution time of
 As we can see on Figure \ref{fig:rateMonotonicExample}, the first job to be executed is $J_2$ followed by $J_3$. $J_1$ is then started but gets preempted by the scheduler, because $J_2$ starts a new execution on period 5. $J_2$ has a shorter period and therefore has a higher priority. $J_3$ continues execution after $J_1$.
 
 \subsection{Earliest deadline first scheduler}
-%noget af dette er taget fra bogen, men det er menga svlrt at koge mere ned synes jeg.
 This scheduling strategy will give a higher priority to jobs if its deadline is
 earlier. In case of preemptive jobs and no competition for resources, this scheduler
 is optimal, in the sense that if utilization at a processor does not exceed one, then
 periodic jobs will be scheduled in such a way that no deadlines are missed.\footnote{\cite{Fokkink1965} p.184}
 
-%Example goes here
+The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample}, can be viewed as using Earliest deadline first scheduler. The first job to be executed is $J_2$ because it has earliest deadline followed by $J_1$ and $J_3$.
 
 \subsection{Least-slacktime-first scheduler}
 This scheduling strategy gives higher priority to jobs wit less slack (Idle time). This scheduler is a good choice if utilization at a processor does not exceed one. In this case the periodic jobs will be scheduled in such a way that no deadlines are missed.\footnote{\cite{Fokkink1965} p.184}
 
-%Example goes here
+The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample}, can be viewed as using Least-slacktime-first scheduler. The first job to be executed is $J_2$ because it has the least slacktime followed by $J_1$ and $J_3$.
+
+\begin{figure}[h!]\label{}
+	\centering
+	\includegraphics[scale=0.5]{realTimeComputing/fig/EarliestDeadlineFirst.png}
+	\caption{Example of Earliest deadline first or Least-slacktime-first scheduler.}
+	\label{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample}
+\end{figure}
+
 \subsection{Resource control}
 Write about resource control/deadlock
 Priority inheirtance
