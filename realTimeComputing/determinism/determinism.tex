@@ -1,9 +1,21 @@
 \section{Determinism} \label{sc:determinism}
 
 - Finite automata for determined/undetermined systems
+
 Short intro, an example\\
-DFA\\
-NFA\\
-TFA\\
+Determinism is an important part of real time computing, they do this by providing much needed predictability to the execution of tasks. When a task requires a predictable amount of computing resources, more a more precise schedule can be made improving the overall performance of the system. One method for making a job deterministic is by using finite state automata. This chapter will detail deterministic and timed finite automata for exploring determinism and non-deterministic finite automata for a short discussion on non-determinism and their relationship with real-time computing. \par
+
+
+Deterministic finite automata (DFA)\\
+A variant of finite automata where each state is allowed to have up to 1 exit transition from each state. This makes the execution of the automata very predictable. A DFA is considered complete if there is an exit transition for each member of the valid alphabet. \par
+
+
+Non-deterministic finite automata (NFA)\\
+A variant of finite automata where each state is allowed to have more than one exit transition for a given member of the alphabet. The automaton will then process each token from the alphabet until it reaches an accept state. Any NFA can be converted into a DFA using an algorithm known as powerset construction. \par
+
+Timed finite automata (TFA)
+
+
 Compare deterministic and non-deterministic automata
-Talk about timed automatas and how they comply with deadlines
+Talk about timed automata and how they comply with deadlines
+
