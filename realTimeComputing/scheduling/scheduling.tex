@@ -1,7 +1,7 @@
 \section{Scheduling} \label{sc:scheduling}
 In scheduling the aim is to meet all hard deadlines and handle soft deadlines of jobs in the best possible manner and avoid deadlocks while doing so. The arrival time of a job is the moment in time it arrives at a processor, while the release time of a job is the moment in time it becomes available for execution. A task can have different job types and such as periodic, sporadic and aperiodic. A task is a set of jobs known at the start of the system or triggered by a external event.
 
-A periodic task is defined by three parameters:
+A periodic task is defined:
 \begin{itemize}
 	\itemsep0em
 	\item The release time \textit{r} of the first periodic job.
@@ -14,10 +14,10 @@ and is written as $J_n=(r,p,e,d$)
 \subsection{Rate-monotonic scheduler}
 The rate-monotonic scheduling strategy gives a higher priority to periodic jobs with a shorter period. Because of the static nature of the scheduler, it is easy to compute and predict.\footnote{\cite[p.~183]{Fokkink1965}}
 %--- This can be removed if we need space?
-We define three periodic jobs: $J_1$ with a period of 20 and a execution time of 3, $J_2$ with a period of 5 and a execution time of 2, $J_3$ with a period of 10 and a execution time of 2. All with a release time of 0. Figure \ref{fig:rateMonotonicExample} shows the execution of the three jobs using a rate-monotonic scheduler.
+We define three periodic jobs: $J_1$ with a period of 20 and a execution time of 3, $J_2$ with a period of 5 and a execution time of 2, $J_3$ with a period of 10 and a execution time of 2. All with a release time of 0 and the deadlines are not defined. Figure \ref{fig:rateMonotonicExample} shows the execution of the three jobs using a rate-monotonic scheduler.
 %---
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.5]{realTimeComputing/fig/rate-mono.png}
 	\caption{Example of rate-monotonic scheduling.}
@@ -32,10 +32,10 @@ early. In case of preemptive jobs and no competition for resources, this schedul
 is optimal, in the sense that if utilization at a processor does not exceed one, then
 periodic jobs will be scheduled in such a way that no deadlines are missed.\footnote{\cite[p.~184]{Fokkink1965}}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.5]{realTimeComputing/fig/EarliestDeadlineFirst.png}
-	\caption{Example of Earliest deadline first or Least-slacktime-first scheduler.}
+	\caption{Example of Earliest deadline first and Least-slacktime-first scheduler.}
 	\label{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample}
 \end{figure}
 
