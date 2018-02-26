@@ -2,7 +2,7 @@
 
 Determinism is an important part of real time computing providing much needed predictability to the execution of tasks. When a task requires a predictable amount of computing resources, a more precise schedule can be made improving the overall performance of the system. One method for making a job deterministic is by using finite state automata. This chapter will detail deterministic and timed finite automata for exploring determinism and non-deterministic finite automata for a short discussion on non-determinism and their relationship with real-time computing. 
 
-\subsection{Finite automata for determined/undetermined systems}
+\subsection{Finite automata for (un)determined systems}
 
 \subsection{Deterministic finite automata (DFA)}
 A variant of finite automata where each state is allowed to have up to one exit transition from each state for a given member of the alphabet. This makes the execution of the automata very predictable. A DFA is considered complete if there is an exit transition for each member of the valid alphabet. 
@@ -28,14 +28,6 @@ In the TFA shown on figure \ref{fig:tfaSample}, the control will go from l0 to l
 \subsection{Compare deterministic and non-deterministic automata}
 The difference between deterministic and non-deterministic automata lies in their focus of execution, with NFA the execution is operated as a sort of breadth first search algorithm as the execution spreads through the entire automata searching for an end state. DFA on the other hand will only ever operate in a single state and are therefore more manageable and predictable. When it comes to realtime computing, predictability is king.
 
-\subsection(Talk about timed automata and how they comply with deadlines}
+\subsection{Talk about timed automata and how they comply with deadlines}
 By adding clocks to deterministic automata the state machine gains the concept of time, which is neccessary to make any requirements regarding deadlines. By setting time limits to how long an execution can run the programmer can, during implementation, be aware of and work within the required time frames for each given state. This quantification of the available resources allows the system to utilize it's resources to the limit, while also staying sufficiently responsive. 
-\subsection{Deterministic finite automata (DFA)}
-A variant of finite automata where each state is allowed to have up to one exit transition from each state for a given member of the alphabet. This makes the execution of the automata very predictable. A DFA is considered complete if there is an exit transition for each member of the valid alphabet. \par
-
-\subsection{Non-deterministic finite automata (NFA)}
-A variant of finite automata where each state is allowed to have more than one exit transition for a given member of the alphabet. The automaton will then process each token from the alphabet until it reaches an accepting state. Any NFA can be converted into a DFA using an algorithm known as powerset construction. \par
-
-\subsection{Timed finite automata (TFA)}
-
 
