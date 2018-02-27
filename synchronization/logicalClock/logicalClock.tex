@@ -1,3 +1,18 @@
 \section{Logical Clock}\label{sc:logicalClock}
 
-lorem
+\subsection{The need for logical clocks}
+
+\subsection{The happened-before relation}
+
+Define the happened-before relation. I guess most can be found in the article "Time, Clocks, and the Ordering of Events in a Distributed System" or in the slides.
+
+\subsection{Lamport time-stamps}
+
+- Invented by Leslie Lamport in 1978.
+- It is an algorithm to determine the ordering of events in a system.
+- Simply an local counter that each process increments before an event and attaches when it sends a message. The receiving party compares the received value with its own and whichever value is the greatest is then assigned to the counter of the received process.
+
+To evaluate this is in practical setting, we define a simple Python application using MPI (Message Passing Interface) that demonstrates Lamport time-stamps in action.
+
+-- SHOW code samples from python code.
+
