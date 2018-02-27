@@ -1,5 +1,7 @@
 \section{Logical Clock}\label{sc:logicalClock}
 
+Good for managing ordering and scheduling of events in a system without needing to exist within the domain of real time. Time is defined in terms different from \textit{t(x)}
+
 \subsection{The need for logical clocks}
 
 \subsection{The happened-before relation}
@@ -8,11 +10,21 @@ Define the happened-before relation. I guess most can be found in the article "T
 
 \subsection{Lamport time-stamps}
 
+Definitions from Lamport
+a->b
+Concurrency
+
 - Invented by Leslie Lamport in 1978.
 - It is an algorithm to determine the ordering of events in a system.
 - Simply an local counter that each process increments before an event and attaches when it sends a message. The receiving party compares the received value with its own and whichever value is the greatest is then assigned to the counter of the received process.
 
+Pros/Cons
+
+Lamport clock - The one he talked about in the lecture.
+A sample could be prepared from the BlinkToRadio example in sensor networks.
+OR
 To evaluate this is in practical setting, we define a simple Python application using MPI (Message Passing Interface) that demonstrates Lamport time-stamps in action.
-
 -- SHOW code samples from python code.
-
+OR
+Heartbeat clock - A clock which is ticked forward based on a 'heartbeat' that all parts of the system have access too.
+Can't find any sources for this quickly. It may need a bit of extra 
