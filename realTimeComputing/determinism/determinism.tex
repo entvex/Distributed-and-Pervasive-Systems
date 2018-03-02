@@ -25,12 +25,12 @@ A variant on DFA where in addition to the input stream, there are defined clocks
 \begin{figure}[h!]\label{}
     \centering
     \includegraphics[scale=0.5]{realTimeComputing/fig/TFA.png}
-    \caption{A TFA that 
+    \caption{A TFA that }
     \caption{A sample TFA}
     \label{fig:tfaSample}
 \end{figure}
 
-In the TFA shown on figure \ref{fig:tfaSample}, the control will go from s_0 to s_1 when 'a'. In s_1 it can take any number of 'e' as long as t < 3. From s_1 it is possible to go to s_4 on 'e' as long as t < 2. From s_1 or s_4 control can be passed to s_2 on 'b' which must happen before t = 3. Finally control will be passed to s_3 on 'c' before t = 5.
+In the TFA shown on figure \ref{fig:tfaSample}, the control will go from $s_0$ to $s_1$ when 'a'. In $s_1$ it can take any number of 'e' as long as t < 3. From $s_1$ it is possible to go to $s_4$ on 'e' as long as t < 2. From $s_1$ or $s_4$ control can be passed to $s_2$ on 'b' which must happen before t = 3. Finally control will be passed to $s_3$ on 'c' before t = 5.
 
 \subsection{Compare deterministic and non-deterministic automata}
 The difference between deterministic and non-deterministic automata lies in their focus of execution, with NFA the execution is operated as a sort of breadth first search algorithm as the execution spreads through the entire automata searching for an end state. DFA on the other hand will only ever operate in a single state and are therefore more manageable and predictable. When it comes to realtime computing, predictability is king.
