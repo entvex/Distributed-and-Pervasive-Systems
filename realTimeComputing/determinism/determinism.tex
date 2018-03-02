@@ -2,10 +2,17 @@
 
 Determinism is an important part of real time computing providing much needed predictability to the execution of tasks. When a task requires a predictable amount of computing resources, a more precise schedule can be made improving the overall performance of the system. One method for making a job deterministic is by using finite state automata. This chapter will detail deterministic and timed finite automata for exploring determinism and non-deterministic finite automata for a short discussion on non-determinism and their relationship with real-time computing. 
 
-\subsection{Finite automata for (un)determined systems}
+\subsection{Finite automata for (un)deterministic systems}
 
 \subsection{Deterministic finite automata (DFA)}
 A variant of finite automata where each state is allowed to have up to one exit transition from each state for a given member of the alphabet. This makes the execution of the automata very predictable. A DFA is considered complete if there is an exit transition for each member of the valid alphabet. 
+
+\begin{figure}[h!]\label{}
+    \centering
+    \includegraphics[scale=0.5]{realTimeComputing/fig/DFA.png}
+    \caption{An DFA that accepts any input that contains two '1' symbols in a row}
+    \label{fig:dfaSample}
+\end{figure}
 
 \subsection{Non-deterministic finite automata (NFA)}
 A variant of finite automata where each state is allowed to have more than one exit transition for a given member of the alphabet. As a consequence the state machine can be in multiple states simultaneously and will continue running until any path reaches an end-state. This unpredictability makes the automaton highly volatile with regards to execution time, and therefore illsuited for time sensitive execution.\par
@@ -17,13 +24,13 @@ A variant on DFA where in addition to the input stream, there are defined clocks
 
 \begin{figure}[h!]\label{}
     \centering
-    \includegraphics[scale=0.5]{realTimeComputing/fig/TFA_Waez.png}
-    \caption{Figure 3 from A survey of timed automata for the development of real-time systems by Md Tawhid Bin Waez, et al.}
+    \includegraphics[scale=0.5]{realTimeComputing/fig/TFA.png}
+    \caption{A TFA that 
+    \caption{A sample TFA}
     \label{fig:tfaSample}
 \end{figure}
 
-In the TFA shown on figure \ref{fig:tfaSample}, the control will go from l0 to l1 once condition a occurs, as with a normal DFA. The switch from \textit{l1} to \textit{l2} will occur once either \textbf{b}, or \textbf{x > 1} and the same with the switch from \textit{l2} to \textit{l3}. In \textit{l3} the control will remain and process any \textbf{c} that comes in until either \textbf{b} or \textbf{y > 2}. 
-
+In the TFA shown on figure \ref{fig:tfaSample}, the control will go from s_0 to s_1 when 'a'. In s_1 it can take any number of 'e' as long as t < 3. From s_1 it is possible to go to s_4 on 'e' as long as t < 2. From s_1 or s_4 control can be passed to s_2 on 'b' which must happen before t = 3. Finally control will be passed to s_3 on 'c' before t = 5.
 
 \subsection{Compare deterministic and non-deterministic automata}
 The difference between deterministic and non-deterministic automata lies in their focus of execution, with NFA the execution is operated as a sort of breadth first search algorithm as the execution spreads through the entire automata searching for an end state. DFA on the other hand will only ever operate in a single state and are therefore more manageable and predictable. When it comes to realtime computing, predictability is king.
