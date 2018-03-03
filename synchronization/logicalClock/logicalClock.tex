@@ -1,30 +1,32 @@
 \section{Logical Clock}\label{sc:logicalClock}
 
-Good for managing ordering and scheduling of events in a system without needing to exist within the domain of real time. Time is defined in terms different from \textit{t(x)}
+In an absence of real clocks, a logical clock would be applicable to coordinate task and allow ordering of events between nodes in a distributed system. Logical clocks range from mere counters, that periodically increments some integer value, to complex vector time stamps with multiple sets of integer vectors. In this section we look at the need for logical clocks, define a happened-before relation and Lamport scalar time stamps. Time is defined in terms different from \textit{t(x)}
 
-\subsection{The need for logical clocks}
+\subsection{A framework for logical clocks}
 
-\subsection{The happened-before relation}
+We define the logical clock as \textit{C} consisting of a time domain \textit{T}. Relation \textit{->} is called the happened-before relation or earlier-than. The logical clock C maps an event e to a element in the time domain T, which we denote as C(e) and define as:
 
-Define the happened-before relation. I guess most can be found in the article "Time, Clocks, and the Ordering of Events in a Distributed System" or in the slides.
+\[ C: H \longmapsto T \]
+which satisfies the three properties for the happened-before relation:
+
+\begin{itemize}
+	\item Clock consistency: For two events $e_i$ and $e_j$, $e_i$ -> $e_j$ $\Longrightarrow$ C($e_i$) < C($e_j$)
+	\item Contrapositive: If C($e_i$) $\nless$ C($e_j$), then $e_i$ $\nrightarrow$ $e_j$
+	\item Strong consistency: $e_i$ -> $e_j$ $\Leftrightarrow$ C($e_i$) < C($e_j$)
+\end{itemize}
+
+To implement a logical clock in a system of multiple processes, we need to address two issues: A local data structure in each process $p_i$ to represent logical time and a protocol to update the data structures of other processes to ensure the clock consistency condition. This protocol ensures that process $p_j$ local clock and its view on the global clock is consistent, and can be implemented with Lamport time stamps. 
 
 \subsection{Lamport time-stamps}
 
-Definitions from Lamport
-a->b
-Concurrency
+Invented by Leslie Lamport in 1978, it is an algorithm to order events in a system by using scalar time, a simple non-negative integer $C_i$ time stamp that each process in a system manages. To implement it, we look at at send-scenario, where $p_i$ relays a message to $p_j$.
 
-- Invented by Leslie Lamport in 1978.
-- It is an algorithm to determine the ordering of events in a system.
-- Simply an local counter that each process increments before an event and attaches when it sends a message. The receiving party compares the received value with its own and whichever value is the greatest is then assigned to the counter of the received process.
+\begin{itemize}
+	\item Before a send event, process $p_i$ executes the following: $C_i$ $\colon$=  $C_i$ + d, where d is a non-zero scalar.
+	\item Process $p_i$ sends the message to process $p_j$ containing a payload and the time stamp $C_i$.
+	\item Process $p_j$ receives the message with time stamp $C_i$ and executes: $C_j$ $\colon$= max($C_j$,$C_i$) 
+\end{itemize}
 
-Pros/Cons
+This ensures that process $p_j$ will update its local logical clock newest global logical clock whenever it receives messages from other processes, allowing events to happen at a more consistent basis now that a given process uses the most up-to-date global clock to know when to fire.
 
-Lamport clock - The one he talked about in the lecture.
-A sample could be prepared from the BlinkToRadio example in sensor networks.
-OR
-To evaluate this is in practical setting, we define a simple Python application using MPI (Message Passing Interface) that demonstrates Lamport time-stamps in action.
--- SHOW code samples from python code.
-OR
-Heartbeat clock - A clock which is ticked forward based on a 'heartbeat' that all parts of the system have access too.
-Can't find any sources for this quickly. It may need a bit of extra 
+
