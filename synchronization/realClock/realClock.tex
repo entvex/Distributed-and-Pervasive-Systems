@@ -28,15 +28,8 @@ The protocol is built from two procedures that occur in parallel, first a synton
 
 This split in traffic and periodic maintenance is well suited to packet switched networks as there is no need for dedicated lines of communication and the line can easily be shared with other applications. A second benefit of the small resource footprint of PTP is that it allows a single server to synchronize with multiple slaves, while being synchronized in turn. The system is infinitely hierarchical, with masters having the ability to simultaneously being slaves to a different master, this means that the protocol can be infinitely scaled up with relatively small overhead.
 
+PTP is excellent for use in systems where extremely high precision is required  inside the realtime domain. Especially in applications for scientific, measurement and control systems.
 
-
-- IEEE 1588
-- Explain the basics. 
-- Applications?
-- Why is suited/designed for packet-switched networks?
-- Does it scale well? Performance?
-- Show Phase 1 and Phase 2.
-- Master slave.
 
 \subsection{Software vs. hardware}
 
