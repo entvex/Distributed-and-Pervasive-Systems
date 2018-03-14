@@ -1,3 +1,17 @@
 \section{Multi-segment real-time Ethernet}
 
-Maybe put this together with multiSegmentStp?
+%Maybe put this together with multiSegmentStp?
+
+To solve issues with collisions it is neccessary to split the network into different domains each with their own collision domains. This was made possible with the introduction of switches which segmented the network on the Link layer (OSI Level 2) in 1990 by Kalpana, which was later acquired by Cisco. The segmentation resulted in traffic no longer being broadcast across multiple nodes, and at the extreme each node is connected directly to a network switch forming a micro segment. In <Year> full 8 wire twisted pair wires were introduced which allowed for Pysical layer (OSI Level 1) segmentation as the cables were now full duplex. In the years since the price of CAT 5 cables and switches has dropped, and eventually the older technologies were phased out in most networks, removing all potential for collisions. As a consequence of the collision free networks it became possible to exceed 10 Mbps and modern networking cards support 100 Mbps at a minimum and 1 Gbps is becoming more common.
+
+\subsection{Store and forward vs. Cut through}
+
+Switches have two modes of operation, 'store and forward' mode or 'cut through' mode. Both modes have their own advantages and disadvantages with neither being objectively better. 
+
+* Store and forward: In this mode the switch stores each package and verifies that it has been received correctly. If the package has been corrupted then the switch will request a retransmission from the previous node. This mode minimizes the transmission of corrupted packages, reducing the overall congestion in the network and improving the performance in a high noise environment. The downsides are that this mode is resource intensive from the switch which increases latency and throughput, especially when there is much traffic on the network.
+* Cut through: In this mode the switch starts sending the package as soon as it starts receiving it, reducing latency and saving resources for data transmissions. This reduction in latency (down to 10 ms between two nodes) makes Cut through more suitable to real time systems. The downsides of cut through switching is that corrupted packages will also be transmitted along with other traffic allowing corrupt data to get further through the network before being caught and retransmitted. 
+
+Many switches have the ability to switch between store and forward and cut through modes depending on the context.
+
+A major challenge for switches is the need to manage routing of messages to the correct recievers, preferably without being manually configured to do so. The switch will manage a list of MAC addresses reachable from each port by monitoring the sender addresses of incoming packages. When in doubt the switch will simply broadcast the message to all active ports aside from the sender. Due to these broadcasts there is a risk of the network flooding itself in cases where 
+
