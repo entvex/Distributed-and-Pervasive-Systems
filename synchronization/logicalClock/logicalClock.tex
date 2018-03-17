@@ -27,6 +27,6 @@ Invented by Leslie Lamport in 1978, it is an algorithm to order events in a syst
 	\item Process $p_j$ receives the message with time stamp $C_i$ and executes: $C_j$ $\colon$= max($C_j$,$C_i$) 
 \end{itemize}
 
-This ensures that process $p_j$ will update its local logical clock newest global logical clock whenever it receives messages from other processes, allowing events to happen at a more consistent basis now that a given process uses the most up-to-date global clock to know when to fire.
+\noindent This ensures that process $p_j$ will update its local logical clock newest global logical clock whenever it receives messages from other processes, allowing events to happen at a more consistent basis now that a given process uses the most up-to-date global clock to know when to fire.
 
 

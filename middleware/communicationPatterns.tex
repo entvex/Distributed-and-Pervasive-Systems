@@ -9,15 +9,15 @@ In a distributed system, we view middleware as one or multiple applications that
 	\label{fig:middleware}
 \end{figure}
 
-Examples of modern middleware includes Postscript printing, the IEEE TCP/IP protocol, database tools like Microsoft's OLEDB, ADO.NET and Entity Framework for SQL operations, the CSharp programming language and underlying .NET runtime framework, and more especially the DDS standard, which we will discuss in the next section. Whichever middleware application we consider, they offer various traits in a distributed system. We look at three key ones, space, time and flow decoupling:
+\noindent Examples of modern middleware includes Postscript printing, the IEEE TCP/IP protocol, database tools like Microsoft's OLEDB, ADO.NET and Entity Framework for SQL operations, the CSharp programming language and underlying .NET runtime framework, and more especially the DDS standard, which we will discuss in the next section. Whichever middleware application we consider, they offer various traits in a distributed system. We look at three key ones, space, time and flow decoupling:
 
-\textbf{Space}: Producers and consumers do not know each-other and no direct link exist.
+\noindent \textbf{Space}: Producers and consumers do not know each-other and no direct link exist.
 
-\textbf{Time}: Communication is asynchronous. A producer or consumer does not have to wait on the counterpart.
+\noindent \textbf{Time}: Communication is asynchronous. A producer or consumer does not have to wait on the counterpart.
 
-\textbf{Flow}: The data production and consumption does not reside in the main flow of the producer or the consumer, i.e. they have additional threads or loops to handle calls.
+\noindent \textbf{Flow}: The data production and consumption does not reside in the main flow of the producer or the consumer, i.e. they have additional threads or loops to handle calls.
 
-Decoupling removes the implied dependency between producer and consumer, when communications occur. These decoupling traits are important when examining middleware applications and its communication-patterns. To quickly review just a few of these, we provide a short list and address their traits:
+\noindent Decoupling removes the implied dependency between producer and consumer, when communications occur. These decoupling traits are important when examining middleware applications and its communication-patterns. To quickly review just a few of these, we provide a short list and address their traits:
 
 \begin{itemize}
 	\item Remote procedure call (RPC): Used to call services on other nodes directly and make them look local to the particular service. Does not provide space or time decoupling, as call is point-to-point and synchronous. Used in for example Java RMI.
@@ -26,7 +26,7 @@ Decoupling removes the implied dependency between producer and consumer, when co
 	\item Publish-subscribe: Messages between nodes are published to topics based on type and sent to a centralized or distributed broker, which forwards messages to specific nodes, that have subscribe to that message type. This pattern provides space, time and flow decoupling.
 \end{itemize}
 
-The publish-subscriber pattern provides all of three mentioned traits and figure \ref{fig:pubsub} illustrates how a central broker (EventService) can use this pattern to archive space, time and flow decoupling. It works by subscribers registering at the broker for certain events or type of information by calling subscribe(). A publisher then publishes a message to the broker using notify(). If any subscribers have subscribed to that particular type of message or data, they have notified by the broker with notify().
+\noindent The publish-subscriber pattern provides all of three mentioned traits and figure \ref{fig:pubsub} illustrates how a central broker (EventService) can use this pattern to archive space, time and flow decoupling. It works by subscribers registering at the broker for certain events or type of information by calling subscribe(). A publisher then publishes a message to the broker using notify(). If any subscribers have subscribed to that particular type of message or data, they have notified by the broker with notify().
 
 \begin{figure}[h!]\label{}
 	\centering

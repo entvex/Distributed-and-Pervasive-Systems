@@ -1,7 +1,7 @@
 \section{Scheduling} \label{sc:scheduling}
 In scheduling the aim is to meet all hard deadlines and handle soft deadlines of jobs in the best possible manner and avoid deadlocks while doing so. The arrival time of a job is the moment in time it arrives at a processor, while the release time of a job is the moment in time it becomes available for execution. A task can have different job types and such as periodic, sporadic and aperiodic. A task is a set of jobs known at the start of the system or triggered by a external event.
 
-A periodic task is defined:
+\noindent A periodic task is defined by:
 \begin{itemize}
 	\itemsep0em
 	\item The release time \textit{r} of the first periodic job.
@@ -24,10 +24,10 @@ We define three periodic jobs: $J_1$ with a period of 20 and a execution time of
 	\label{fig:rateMonotonicExample}
 \end{figure}
 
-As can be seen on Figure \ref{fig:rateMonotonicExample}, the first job to be executed is $J_2$ followed by $J_3$. $J_1$ is then started but gets preempted by the scheduler, because $J_2$ starts a new execution on period 5. $J_2$ has a shorter period and therefore has a higher priority. $J_3$ continues execution after $J_1$.
+\noindent As can be seen on Figure \ref{fig:rateMonotonicExample}, the first job to be executed is $J_2$ followed by $J_3$. $J_1$ is then started but gets preempted by the scheduler, because $J_2$ starts a new execution on period 5. $J_2$ has a shorter period and therefore has a higher priority. $J_3$ continues execution after $J_1$.
 
 \subsection{Earliest deadline first scheduler}
-This scheduling strategy will give a higher priority to jobs if their deadline is
+\noindent This scheduling strategy will give a higher priority to jobs if their deadline is
 early. In case of preemptive jobs and no competition for resources, this scheduler
 is optimal, in the sense that if utilization at a processor does not exceed one, then
 periodic jobs will be scheduled in such a way that no deadlines are missed.\footnote{\cite[p.~184]{Fokkink1965}}
@@ -39,12 +39,12 @@ periodic jobs will be scheduled in such a way that no deadlines are missed.\foot
 	\label{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample}
 \end{figure}
 
-The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample} can be viewed as using Earliest deadline first scheduler. This approach is dynamic meaning it evaluates the jobs each time unit. The first job to be executed is $J_2$ because it has earliest deadline followed by $J_1$ and $J_3$.
+\noindent The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample} can be viewed as using Earliest deadline first scheduler. This approach is dynamic meaning it evaluates the jobs each time unit. The first job to be executed is $J_2$ because it has earliest deadline followed by $J_1$ and $J_3$.
 
 \subsection{Least-slacktime-first scheduler}
 This scheduling strategy gives higher priority to jobs with less slack time (i.e. idle time). This scheduler is a good choice if utilization at a processor does not exceed one. In this case the periodic jobs will be scheduled in such a way that no deadlines are missed.\footnote{\cite[p.~184]{Fokkink1965}} We use the following formula to determine the slacktime: $L(T)=D(T)-C(T)$, Where $T$ represent the time, $L(T)$ represent the laxity (slack), $D(T)$ represent the time between the closest deadline and the current time, $C(T)$ represent the remaining time of execution. For each time-frame a calculation of all the processes are done and the one with the least slacktime will be prioritized.
 
-The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample} can be viewed as using Least-slack time-first scheduler. Note that it is a coincidence that both least-slacktime-first and deadline first schedulers act the same, for this example. At $T=0$ the three formulas will look as follows:
+\noindent The example in Figure \ref{fig:EarliestDeadlineFirstAndLeastSlacktimeFirstSchedulerExample} can be viewed as using Least-slack time-first scheduler. Note that it is a coincidence that both least-slacktime-first and deadline first schedulers act the same, for this example. At $T=0$ the three formulas will look as follows:
 \begin{align}
 	L_1(0)=7-3&=4 \\
 	L_2(0)=4-2&=2 \\

@@ -2,7 +2,7 @@
 
 Ethernet was developed at Xerox PARC in 1973 and commercially introduced in 1980 as the so-called "DIX" (Digital, Intel, Xerox) standard with a bandwidth of 10Mbit/s, using coaxial cables and described as a technology for local-area networks". Ethernet became dominant over the likes of Token Ring and Token Bus in the end of the 1980's, because Ethernet was more adaptive than these proprietary protocols and quickly switched to the twisted-pair wiring (UTP, unshielded twisted pair), reducing cost, complexity and boosting transmission rates.
 
-The Ethernet standard was intended for a typical office environment with workstations, but did also support PC-based controllers, PLC's and other devices, because it was an open-standard and easily accessible. Figure X illustrates a Plant-Control-Device environment, with higher response times at the plant level, more data transfers but less frequency.
+\noindent The Ethernet standard was intended for a typical office environment with workstations, but did also support PC-based controllers, PLC's and other devices, because it was an open-standard and easily accessible. Figure X illustrates a Plant-Control-Device environment, with higher response times at the plant level, more data transfers but less frequency.
 
 \begin{figure}[h!]\label{}
 	\centering
@@ -11,13 +11,13 @@ The Ethernet standard was intended for a typical office environment with worksta
 	\label{fig:plantcontroldevice}
 \end{figure}
 
-The first mid-80's Ethernet technologies (10BASE2, 10BASE5, and early 10BASE-T) constituted a so-called single segment network and relied on hubs, repeaters and the CSMA/CD (Carrier Sense Multiple Access with Collision Detection) protocol for sharing bandwidth on a shared medium. It was relatively low cost and flexible, but nondeterministic medium access made it hard to guarantee deadlines and use in a real-time system with no packet prioritization. Also speed was a function of the number of nodes on a network link. When sending, CSMA/CD implements carrier-sense by listening on the network for traffic. If it occurs, it does not transmit data. If no traffic for a certain period, it transmits data. Multiple Access allows more nodes to share the medium, but means collisions are more likely and that all packets are passed to all nodes. To mitigate this, the protocol brings Collision Detection, where a node listens for collisions on the medium, if they occur it sends a jam signal, back-offs for a random time period (exponential back-off algorithm) and tries again.
+\noindent The first mid-80's Ethernet technologies (10BASE2, 10BASE5, and early 10BASE-T) constituted a so-called single segment network and relied on hubs, repeaters and the CSMA/CD (Carrier Sense Multiple Access with Collision Detection) protocol for sharing bandwidth on a shared medium. It was relatively low cost and flexible, but nondeterministic medium access made it hard to guarantee deadlines and use in a real-time system with no packet prioritization. Also speed was a function of the number of nodes on a network link. When sending, CSMA/CD implements carrier-sense by listening on the network for traffic. If it occurs, it does not transmit data. If no traffic for a certain period, it transmits data. Multiple Access allows more nodes to share the medium, but means collisions are more likely and that all packets are passed to all nodes. To mitigate this, the protocol brings Collision Detection, where a node listens for collisions on the medium, if they occur it sends a jam signal, back-offs for a random time period (exponential back-off algorithm) and tries again.
 
-The truncated exponential back-off algorithm (EBA) retransmits after a random back-off time given by:
+\noindent The truncated exponential back-off algorithm (EBA) retransmits after a random back-off time given by:
 
 \[ T_{back-off}: r \times T_{slot} \]
 
-with these properties:
+\noindent with these properties:
 
 \begin{itemize}
 	\item $T_{slot}$ = $T_{dataout}$ + $T_{jam-back}$. The time it takes for the data to be sent to the point of collision and for the jam signal to get back. It is the max theoretical round-trip time.
@@ -25,7 +25,7 @@ with these properties:
 	\item c is a local node counter, c $\in$ [1;$c_max$], and is reset after successful transmission. $c_max$ = 10 in the IEEE 802.3 CSMA/CD standard. Truncation means that after a certain number of increases, exponentiation stops and is reset.
 \end{itemize}
 
-For 10Mbit/s Ethernet, $T_{slot}$ = 51.2$\mu$s and decreases when transmission rates $\longrightarrow$ $\propto$. Figure \ref{fig:csmacd} shows how a collision on the wire, how the two re-transmissions collide and the random back-off timer in effect.
+\noindent For 10Mbit/s Ethernet, $T_{slot}$ = 51.2$\mu$s and decreases when transmission rates $\longrightarrow$ $\propto$. Figure \ref{fig:csmacd} shows how a collision on the wire, how the two re-transmissions collide and the random back-off timer in effect.
 
 \begin{figure}[h!]\label{}
 	\centering
@@ -34,5 +34,5 @@ For 10Mbit/s Ethernet, $T_{slot}$ = 51.2$\mu$s and decreases when transmission r
 	\label{fig:csmacd}
 \end{figure}
 
-A conceivable drawback of the back-off algorithm is that it can introduce medium monopolization by one node in a network, $Node_{a}$, depriving another node, $Node_{b}$ of time to send. As the back-off algorithm is random, if $Node_{a}$ is more successful than $Node_{b}$ at sending packets, $Node_{b}$'s collision counter might increase beyond that of $Node_{a}$, resulting in exponential wait times for $Node_{b}$. In the next chapter we look at how to solve collisions using network segmentation.
+\noindent A conceivable drawback of the back-off algorithm is that it can introduce medium monopolization by one node in a network, $Node_{a}$, depriving another node, $Node_{b}$ of time to send. As the back-off algorithm is random, if $Node_{a}$ is more successful than $Node_{b}$ at sending packets, $Node_{b}$'s collision counter might increase beyond that of $Node_{a}$, resulting in exponential wait times for $Node_{b}$. In the next chapter we look at how to solve collisions using network segmentation.
 
