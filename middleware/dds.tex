@@ -2,11 +2,21 @@
 
 DDS is a publish-subscribe standard by the OMG group and is available as open-source or commercial implementations like OpenDDS or RTI Connext. DDS supports topic, content or type based subscribing, where a topic is a somewhat arbitrary general naming of a message, content is certain properties evaluated at runtime of a message, and type is using a static type schema of a higher-level language, for example CSharp or Java, to distinguish messages. Because DDS is based on publish-subscribe, it provides a flexible and adaptable architecture, with a large number of configuration properties and ranging from one-to-one to many-to-many communication support.
 
-\subsection{Architecture, DLRL and DCPS}
+\subsection{Infrastructure:, DLRL and DCPS}
+The DDS infrastructure can be see in Figure \ref{fig:DDSIinfrastructure}. The Publish / Subscribe interface are connection points where node can communicate with each other using a topic. The Quality of service(QoS) configuration is used to specify important parameters for the distributed application based on the given requirements. These QoS parameters can include destination ordering to ensure that messages always arrival in order, this is applied each specific piece of data. The Topic based anonymous communication handles topics so  decoupled communication can happen.
 
+\begin{figure}[h!]\label{}
+	\centering
+	\includegraphics[scale=0.8]{middleware/DDSIinfrastructure.png}
+	\caption{The Data Distribution Service Infrastructure}
+	\label{fig:DDSIinfrastructure}
+\end{figure}
 
+%%I guess this could go?
+Within the DDS we there also is a Optional layer DLRL(Data Local Reconstruction Layer) that allows for a more direct approach to the exchanged data, seamlessly integrated with the native-language
+constructs. Using Object orientation has been selected for all the benefits it provides in software engineering and therefor enables the application developers to use the underlying DDS features.
 
 \subsection{DDS-SDP - Simple Discovery Protocol}
+In the DDS we need a way to DDS tracks presence of all participants and endpoints in the system so when a new participant join they will be able to discover new Participants in the same Domain. This is possible because SDP allows to build peer-to-peer architectures without the need of any broker. 
 
 \subsection{DDS-IS - The Interconnection Service}
-No rom
