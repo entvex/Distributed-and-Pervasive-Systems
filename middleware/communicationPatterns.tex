@@ -9,7 +9,7 @@ In a distributed system, we view middleware as one or multiple applications that
 	\label{fig:middleware}
 \end{figure}
 
-\noindent Examples of modern middleware includes Postscript printing, the IEEE TCP/IP protocol, database tools like Microsoft's OLEDB, ADO.NET and Entity Framework for SQL operations, the CSharp programming language and underlying .NET runtime framework, and more especially the DDS standard, which we will discuss in the next section. Whichever middleware application we consider, they offer various traits in a distributed system. We look at three key ones, space, time and flow decoupling:
+\noindent Three examples of modern middleware is the open-source message-broker RabbitMQ, the web-server specification OWIN for .NET and the DDS standard, which we will discuss in the next section. RabbitMQ provides a simple client interface to a broker, that can exchange messages in a distributed system. We define it as middleware because it manages connectivity and message passing among two systems. OWIN defines a interface between .NET web servers and applications, meaning all the layers between a public API and the actual web server. This includes deserializing the HTTP request,   invoking authentication modules and generating response data. Whichever middleware application we consider, they offer various traits in a distributed system. We look at three key ones, space, time and flow decoupling:
 
 \noindent \textbf{Space}: Producers and consumers do not know each-other and no direct link exist.
 
