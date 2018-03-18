@@ -12,6 +12,11 @@ The DDS infrastructure can be see in Figure \ref{fig:DDSIinfrastructure}. The Pu
 	\label{fig:DDSIinfrastructure}
 \end{figure}
 
+%%  DCPS: er vigtere end DLRL!!!
+The Data Centric Publish Subscribe (DCPS) enables publishers and subscribers exchange
+data items identified by topic within a shared data-space also known as a domain. This allows a publisher who wants to update datacontent belonging topic. The middleware has the responsibility for delivering the update to the subscribers. The domain works as a distributed cache so data-caching and content-based-filtering can be access by the pub/subs.
+%Should we add a image?
+
 %%I guess this could go?
 Within the DDS we there also is a Optional layer DLRL(Data Local Reconstruction Layer) that allows for a more direct approach to the exchanged data, seamlessly integrated with the native-language
 constructs. Using Object orientation has been selected for all the benefits it provides in software engineering and therefor enables the application developers to use the underlying DDS features.
