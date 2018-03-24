@@ -1,1 +1,7 @@
 \chapter{Consistency} \label{ch:consistency}
+
+Consistency is a condition where all nodes in a system agree on the current state of the system and see the same data at the same time. In a centralized system, this challenge often becomes more manageable, as decisions that change the state of the system are stored in shared memory between processes. In a distributed system with multiple nodes, each processor has its own private memory and the ability to change the state of the system, so state information must be passed from one node to the next. This can create consistency problems, when nodes become out of sync or somehow do not reflect the current state of the system due to server failures, bandwidth bottlenecks or network topology changes. In this chapter we look at the CAP and PACELC theorems for consistency and replication, and discuss various consistency models used in distributed systems.
+
+\input{consistency/captheorem}
+
+\input{consistency/consistencymodels}
