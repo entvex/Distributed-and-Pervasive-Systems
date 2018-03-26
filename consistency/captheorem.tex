@@ -3,5 +3,47 @@
 In-depth about CAP.
 
 \section{PACELC}
+The PACELC theorem is a addition to the CAP. In CAP, one must choose between high availability and consistency. This leaves no option for mission-critical but to sacrifice consistency because high availability is a must. This logic is not right because the P in CAP is a mix of \textit{partition tolerance} and a \textit{actual network partition}. Therefor it is wrong to assume the systems that reduce consistency in the absence of any partitions are doing it because of CAP. The PACELC theorem handles the cases when a network partition have or not happened.
 
-About PACELC.
+The theorem states If there is a partition \textbf{P}, how does the system trade off availability \textbf{A} and consistency \textbf{C}. Else, when the system is running normally in
+the absence of partitions, how does the system trade off latency \textbf{L}
+and consistency \textbf{C}? \textbf{( REF TIL Fischer DIPS S08 Consistency Slides.pdf side 13 ).}
+
+
+As it can be seen in table \ref{tab:PACELC} \textbf{Cassandra} is a PA/EL system. So if a partition happens, it will give up consistency for availability, and during normal operation they give up consistency for lower latency. \textbf{BigTable}
+Is a ACID system and therefor PC/EC. It will refuse to give up consistency and pay the price in terms availability and latency costs to achieve it.\textbf{MongoDB} can be classified as a PA/EC system. In the default configuration, the system guarantees reads and writes to be consistent. When MongoDB faces a  \textbf{( REF TIL 2012 Abadi ConsistencyTradeoffsInModernDistributedDatabaseSystemDesign.pdf side 42 ).}
+
+%TODO Denne fucking table vil ikke stå under texten!?!?!
+
+When a system have a network partition happen to it there is a few options for replication the data.
+
+
+\begin{enumerate}
+	\item Data updates sent to all replicas at the same time
+	\begin{enumerate}
+		\item Nested item 1
+		\item Nested item 2
+	\end{enumerate}
+	\item Data updates sent to an agreed-upon location first
+	\item Data updates sent to an arbitrary location first.
+\end{enumerate}
+(1) 
+
+
+
+\begin{table}
+	\centering
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	System & A & C & L & C \\ 
+	\hline 
+	Cassandra & X &  & X &  \\ 
+	\hline 
+	BigTable &  & X &  & X \\ 
+	\hline 
+	MongoDB &  & X & X &  \\ 
+	\hline 
+\end{tabular}
+  \caption{This is my one big table} \label{tab:PACELC}
+\end{table}
+
