@@ -9,27 +9,27 @@ The theorem states If there is a partition \textbf{P}, how does the system trade
 the absence of partitions, how does the system trade off latency \textbf{L}
 and consistency \textbf{C}? \textbf{( REF TIL Fischer DIPS S08 Consistency Slides.pdf side 13 ).}
 
-
 As it can be seen in table \ref{tab:PACELC} \textbf{Cassandra} is a PA/EL system. So if a partition happens, it will give up consistency for availability, and during normal operation they give up consistency for lower latency. \textbf{BigTable}
 Is a ACID system and therefor PC/EC. It will refuse to give up consistency and pay the price in terms availability and latency costs to achieve it.\textbf{MongoDB} can be classified as a PA/EC system. In the default configuration, the system guarantees reads and writes to be consistent. When MongoDB faces a  \textbf{( REF TIL 2012 Abadi ConsistencyTradeoffsInModernDistributedDatabaseSystemDesign.pdf side 42 ).}
-
 %TODO Denne fucking table vil ikke stå under texten!?!?!
-
 When a system have a network partition happen to it there is a few options for replication the data.
-
-
 \begin{enumerate}
-	\item Data updates sent to all replicas at the same time
+	\item Data updates sent to all replicas at the same time.
 	\begin{enumerate}
-		\item Nested item 1
-		\item Nested item 2
+		\item Using a preprocessing layer gives us consistency but increased latency.
+		\item Not using a preprocessing layer will decrease latency but can only offer eventual consistency.
 	\end{enumerate}
 	\item Data updates sent to an agreed-upon location first
+	\begin{enumerate}
+		\item Synchronous the master node waits until updates made it to the replicas. Therefor gaining consistency but pays latency.
+		\item Asynchronous treats the update as if it were completed before being sent to a replica.
+	\end{enumerate}
 	\item Data updates sent to an arbitrary location first.
+		\begin{enumerate}
+		\item Synchronous then the latency problems of (2)(a) are present.
+		\item Asynchronous consistency problems same as (1) and (2)(b) are present.
+	\end{enumerate}
 \end{enumerate}
-(1) 
-
-
 
 \begin{table}
 	\centering
@@ -46,4 +46,3 @@ When a system have a network partition happen to it there is a few options for r
 \end{tabular}
   \caption{This is my one big table} \label{tab:PACELC}
 \end{table}
-
