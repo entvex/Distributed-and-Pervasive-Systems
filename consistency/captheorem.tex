@@ -3,7 +3,7 @@
 In-depth about CAP. Maybe draw our own picture of the CAP triangle. 
 
 \section{PACELC}
-The PACELC theorem is a addition to the CAP theorem. In CAP, one must choose between high availability and consistency. This leaves no option for mission-critical but to sacrifice consistency because high availability is a must. This logic is not right because the P in CAP is a mix of \textit{partition tolerance} and a \textit{actual network partition}. Therefore it is wrong to assume the systems that reduce consistency in the absence of any partitions are doing it because of CAP. PACELC handles the cases when a network partition have or not happened.
+The PACELC theorem is a addition to the CAP theorem. This addition tries to describe a more full picture where that even in the absence of partitions there's a tradeoff between consistency and latency. In CAP, one must choose between high availability and consistency. This leaves no option for mission-critical applications but to sacrifice consistency because high availability is a given. This logic is not right because the P in CAP is a mix of \textit{partition tolerance} and a \textit{actual network partition}. Therefore it is wrong to assume the systems that reduce consistency in the absence of any partitions are doing it because of CAP. PACELC handles the cases when a network partition have or not happened.
 
 \noindent The theorem states: If there is a partition \textbf{P}, how does the system trade off availability \textbf{A} and consistency \textbf{C}. Else, when the system is running normally in
 the absence of partitions, how does the system trade off latency \textbf{L}
@@ -13,7 +13,8 @@ and consistency \textbf{C}? \textbf{( REF TIL Fischer DIPS S08 Consistency Slide
 follows ACID\footnote{ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc.} hence PC/EC. It will refuse to give up consistency and pay the price in terms availability and latency costs to achieve it. \textbf{MongoDB} can be classified as a PA/EC system. In the default configuration, the system guarantees reads and writes to be consistent. When it faces a  \textbf{( REF TIL 2012 Abadi ConsistencyTradeoffsInModernDistributedDatabaseSystemDesign.pdf side 42 ).}
 %TODO Denne fucking table vil ikke stå under texten!?!?!
 When a system have a network partition happen to it there is a few options for replication the data.
-\begin{enumerate}[H]
+\begin{enumerate}
+	
 	\item Data updates sent to all replicas at the same time.
 	\begin{enumerate}
 		\item Using a preprocessing layer gives us consistency but increased latency.
