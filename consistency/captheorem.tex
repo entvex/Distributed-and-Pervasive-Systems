@@ -1,6 +1,22 @@
 \section{The CAP theorem}
+The CAP stands for Consistency, Availability and Partition Tolerance, and these are three attributes of a distributed system. The consistency attribute means that if a node has been written to, then if another node is read from, it will return what was just written to the other node. In other terms, if a node is written to it will return the newest version of the data given to any node in the system. The availability attribute promise that when a node is spoken to it will respond, unless that node has failed, the availability attribute allows for failed nodes but in any other case it will respond. The partition tolerance means that when the network is partitioned then whatever other promises are made about the system, it will still keep those promises. A network is partitioned, when messages can't flow from one machine to another. This might happen if you have two different data centers and the connection between the two is separated. On Figure \ref{fig:cap_triangle} a simplified version of the theorem can be seen, as well as examples of which attributes, some  of the more known databases, support.
 
-In-depth about CAP. Maybe draw our own picture of the CAP triangle. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{consistency/fig/cap_triangle.png}
+	\caption{CAP theorem triangle, with examples of database attribute support.}
+	\label{fig:cap_triangle}
+\end{figure}
+
+The CAP theorem says, that a distributed system, can only have up to two of these attributes fulfilled at a given time. On Figure \ref{fig:cap_proof} the proof, of the three scenarios, is illustrated. Case A; there is a partition between Node A and Node B. The new data that is send to Node A can not be read from Node B, therefor the system is not consistent. Case B; there is a partition between Node A and Node B. Since the new data can not be send between the nodes and the system won't send old data Node B won't respond to the read request, this makes the system not available. Case C; there is no partition between the nodes, therefor the system is not partition tolerant.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.44]{consistency/fig/cap_proof.png}
+	\caption{CAP theorem three possible outcomes.}
+	\label{fig:cap_proof}
+\end{figure}
+
 
 \section{PACELC}
 The PACELC theorem is a addition to the CAP theorem. This addition tries to describe a more full picture where that even in the absence of partitions there's a tradeoff between consistency and latency. In CAP, one must choose between high availability and consistency. This leaves no option for mission-critical applications but to sacrifice consistency because high availability is a given. This logic is not right because the P in CAP is a mix of \textit{partition tolerance} and a \textit{actual network partition}. Therefore it is wrong to assume the systems that reduce consistency in the absence of any partitions are doing it because of CAP. PACELC handles the cases when a network partition have or not happened.
