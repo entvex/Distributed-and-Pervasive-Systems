@@ -1,9 +1,3 @@
-\section{Multi-segment real-time Ethernet}
-
-%Maybe put this together with multiSegmentStp?
-
-To solve issues with collisions it is neccessary to split the network into different domains each with their own collision domains. This was made possible with the introduction of switches which segmented the network on the Link layer (OSI Level 2) in 1990 by Kalpana, which was later acquired by Cisco. The segmentation resulted in traffic no longer being broadcast across multiple nodes, and at the extreme each node is connected directly to a network switch forming a micro segment. In <Year> full 8 wire twisted pair wires were introduced which allowed for Pysical layer (OSI Level 1) segmentation as the cables were now full duplex. In the years since the price of CAT 5 cables and switches has dropped, and eventually the older technologies were phased out in most networks, removing all potential for collisions. As a consequence of the collision free networks it became possible to exceed 10 Mbps and modern networking cards support 100 Mbps at a minimum and 1 Gbps is becoming more common.
-
 \subsection{Store and forward vs. Cut through}
 
 Switches have two modes of operation, 'store and forward' mode or 'cut through' mode. Both modes have their own advantages and disadvantages with neither being objectively better. 
