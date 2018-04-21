@@ -1,0 +1,11 @@
+\section{The consensus problem}
+
+The consensus problem is a fundamental problem in computer science and multi-computing systems applications. It states, that multiple processes or nodes in a system must come to an agreement on a single value for computation. Real world examples include transactions, clock synchronization and leader-election. Processes in a distributed system must talk to each-other, share their current state and somehow agree on one value, however this operation can be troublesome, as communications between nodes may fail or be unreliable in other ways, so we must define a consensus protocol that takes this into account. One way to go about it is to have the processes agree on a majority value, which requires at least one more than half the nodes in a system to reach consensus. This approach is straight-forward if we assume that the processes cannot fail. Every process $p_i$ begins in a \textit{undecided} state and proposes a single value $v_i$ from a set of values $V$ (i= 1, 2 ..., N). Each process then broadcasts this value to fellow processes and collect their values. When it has collected all \textbf{N} values and put them in a set $C$ it decides on the value $d_i$ that occurs the majority of times in the collected set $C$ hereby entering a \textit{decided} state, where it can no longer change $d_i$. To tolerate failures occurring, the protocol must have these properties:
+
+\noindent \textbf{Termination:} Every process eventually decides on a value $d_i$.
+
+\noindent \textbf{Agreement:} All processes must agree on the same decision value $d_i$.
+
+\noindent \textbf{Integrity:} If all correct processes propose the same value $v_i$, then all correct processes will decide $v_i$ as $d_i$.
+
+\noindent Now, if we assume that process $p_i$ can crash at arbitrary times during this consensus vote or become malicious, the process could potentially communicate wrong values to others hindering a consensus. This phenomenon is known as the Byzantine Generals Problem. Next we look at the Raft consensus algorithm protocol, that provides a template for fault-tolerant and reliable consensus negotiation among processes.
