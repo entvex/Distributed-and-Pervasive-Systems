@@ -1,1 +1,7 @@
-\chapter{Fault Tolerance} \label{ch:faultTolerance}
+\chapter{Fault tolerance and consensus} \label{ch:faultToleranceandconsensus}
+
+In a distributed system there is a need for nodes to automatically recover from technical failures or partitions. If a node fails, the rest of the system should continue to operate without disturbing the clients. This is called fault tolerance. When the node has been repaired, it should be able to rejoin the distributed system and have its state brought up-to-date with the rest of the nodes. We say that a system is in a consensual state when a majority of nodes have agreed on some final value. In this chapter we look at the topic of fault tolerance and how it can be archived using the Raft consensus algorithm in a distributed system.
+
+\input{faultTolerance/theBasicsOfFaultTolerance}
+
+\input{faultTolerance/raftalgorithm}
