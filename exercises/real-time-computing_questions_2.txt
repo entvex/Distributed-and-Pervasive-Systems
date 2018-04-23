@@ -1,0 +1,45 @@
+
+
+Real time computing
+
+Real-time systems
+	Definition
+		Logical correctness in due time
+		Responds to an event before a deadline
+		Not fast, but timely
+
+	Deadlines
+		Relative or absolute
+			Relative: T(D) = T(Event) + T(Allowed time)
+
+		Hard, Firm and soft deadlines. Harder means less tolerance for failure.
+
+
+Determinism
+	Determine if deadlines are maintainable.
+		Determine upper bound of time for computation
+
+	Determinism define:
+		In every state of computation the next state is unique
+	Nondeterminism: In every state of a computation several next states may exist
+
+	Upper bound on time-completion of task negatively impacted by nondeterminism. Determinism is much preferred
+
+	Finite automata is good to model and verify determinism.
+
+	NFA means that the transition function is an actual function, P(Q) can return multiple states
+
+	"empty string" can be skipped over without progressing through the input.
+
+	When just any branch is in an accept state, the computation is accepted.
+
+	Timed FA (TFA): Same as a DFA, with added time
+		States have time: local invariants
+		Transitions have time: switch times
+		Time is a non-negative Real number
+		Time can be used as a constraint on states and transitions.		
+
+Scheduling
+
+	
+
