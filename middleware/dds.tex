@@ -5,7 +5,7 @@ DDS is a publish-subscribe standard by the OMG group and is available as open-so
 \subsection{Infrastructure:, DLRL and DCPS}
 The DDS infrastructure can be see in Figure \ref{fig:DDSIinfrastructure}. The Publish / Subscribe interface are connection points where node can communicate with each other using a topic. The Quality of service(QoS) configuration is used to specify important parameters for the distributed application based on the given requirements. These QoS parameters can include destination ordering to ensure that messages always arrival in order, this is applied each specific piece of data. The Topic based anonymous communication handles topics so  decoupled communication can happen.
 
-\begin{figure}[ht!]\label{}
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[scale=0.8]{middleware/DDSIinfrastructure.png}
 	\caption{The Data Distribution Service Infrastructure ref \textbf{ FIX ME (Pardo-Castellote et al., 2005 [4])}}
@@ -25,3 +25,13 @@ constructs. Using Object orientation has been selected for all the benefits it p
 In the DDS we need a way to DDS tracks presence of all participants and endpoints in the system so when a new participant join they will be able to discover new Participants in the same Domain. This is possible because SDP allows to build peer-to-peer architectures without the need of any broker. 
 
 \subsection{DDS-IS - The Interconnection Service}
+The DDS data spaces Interconnection Service (DDS-IS) is a service capable of bridging DDS domains and adapting between different data schemes.% DDS-IS has the following features; scalability, data model compatibility and confidentiality, delivery guarantees, standard compliance and performance that is good enough for use cases in need of the service. The three key features that DDS-IS is solving is system scalability, data transformation between data-spaces, and QoS adaptation between remote entities.\footnote{\cite{Lopez-Vega2013} p. 110}
+
+The architecture of DDS-IS is straight forward. All components in need of a publish/subscribe service, still uses DDS as a middleware. The difference between DDS and DDS-IS is that a DDS-IS Node is added in-between two DDS domains that are not able to bridge directly to each other, or would make a huge impact on performance, if they did. of Figure \ref{fig:DDSISarchitecture}\footnote{\cite{Lopez-Vega2013} p. 112} the architecture of DDS-IS can be seen. The impact on the standard DDS performance is very low and the DDS-IS improves the scalability of DDS systems by reducing the network traffic load between remotely interconnected data spaces.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.18]{middleware/DDSISarchitecture.png}
+	\caption{Layered DDS-IS architecture}
+	\label{fig:DDSISarchitecture}
+\end{figure}
