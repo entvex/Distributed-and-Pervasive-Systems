@@ -1,1 +1,15 @@
 \section{Relative positioning}
+A relative position is a position that is relative to something absolute. A technique called dead reckoning is very useful in situations where one have to move away from a absolute position, therefore won't be able to get another for a while. Such as in a network game or outside hiking with no GPS. To use dead reckoning you need keep track of things can that help you navigate such as. 
+\begin{itemize}
+\item Direction of travel.
+\item Pace.
+\item Time of walking.
+\item Landmarks.
+\end{itemize}
+When a trip starts we know we are at a absolute position the base camp and we want to reach the destination as shown in figure \ref{fig:deadrecdrawing}. We use our pace, compas and the landmarks to navigate to the destination.
+\begin{figure}[H]
+	\includegraphics[width=0.4\linewidth]{positioning/positioning/deadRecDrawing}
+	\caption{A hiking trip with navigation using dead reckoning.}
+	\label{fig:deadrecdrawing}
+\end{figure}
+But dead reckoning suffers from errors that are cumulative, for example, if the first part of the example had ended up being 8 km instead of 5 then even if the second part goes according to plan, you are still going to end up in the wrong place. Way to solve this problem is to find your absolute location with bearings from time to time as that will reset the drift in regard to possible errors.
