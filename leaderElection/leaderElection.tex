@@ -1,1 +1,7 @@
 \chapter{Leader Election} \label{ch:leaderElection}
+
+A leader performs sort of the conductor role in a distributed system and is responsible for maintaining consensus. Putting this task on one job has the benefit of avoiding synchronization conflicts when individual nodes has to update their state, but also ensures consistency in the process and provides safety as well. Ideally, the nodes should not know each-other and send commands among them, but solely relay on the leader telling them what to compute. Therefore the task of selecting the leader becomes crucial. In this chapter we will look two popular algorithms to do so, the Bully and the ring algorithm, and then discuss other ways to elect the most appropriate leader.
+
+\input{leaderElection/bullyandringalgorithm}
+
+\input{leaderElection/otherwaystochoosealeader}

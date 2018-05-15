@@ -1,0 +1,9 @@
+\section{Other ways to choose a leader}
+
+One shortcoming of the bully algorithm is its naive approach to selecting a leader, where it simply picks the node or process with the highest id. You could design your system such as the node with the most resources or raw CPU power also had the highest id, and as you go down in identifiers the resources available drops, but that is not always possible or convenient. Let us address two few factors that could be more profitable including in the election process:
+
+\noindent \textbf{Computational resources}: Obviously, the leader has to do more than everybody else, so measuring its computational capabilities before casting ones ballot could be advantageous. Things like CPU power, memory, available storage for replication logs and battery power left if we are in a wireless setting spring to mind.
+
+\noindent \textbf{Server or network load}: A distributed system operates a varying work loads and network resources may come and go. During day time, the server handling orders at a web shop may be more stressed taking customer orders than at night, which could make it less applicable as a leader. Also data traffic congestion at a certain node could play a role as well.
+
+\noindent There is no silver bullet when selecting the right leader election protocol, so application, system size and resources need to be considered. A small embedded system might be fine off with the bully algorithm, while a bigger and more complex system might need something else.
