@@ -17,13 +17,13 @@
 
 
 8.1 A picture of the bully and ring algorithm would be cool
-
+- David = In Process
 
 9 Intro needs to be reworked for Hybrid Positioning
 - Titas = In Process
 
 9.2 Add relative positioning about gaming!!!
-- David = In Process
+- David = In Done
 
 9.3 Make sure that predcit and correct steps are written about (might already be there).
 - Titas = In Process
