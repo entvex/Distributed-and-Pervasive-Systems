@@ -1,6 +1,6 @@
 \section{The Raft consensus algorithm}
 
-Raft was proposed by Diego Ongaro and John Ousterhout in 2014. The goal was to offer a easy to understand, implementable and fault-tolerant consensus protocol to be used in a distributed system to replicate state machines. Raft works by managing a replicated log across multiple nodes and upholds simplicity by separating key elements of the process, that is leader election, log distribution and safety, versus a protocol like Paxos that has proven difficult to understand. Key features of Raft include:
+Raft was proposed by Diego Ongaro and John Ousterhout in 2014\footnote{\cite{Ongaro2014}}. The goal was to offer a easy to understand, implementable and fault-tolerant consensus protocol to be used in a distributed system to replicate state machines. Raft works by managing a replicated log across multiple nodes and upholds simplicity by separating key elements of the process, that is leader election, log distribution and safety, versus a protocol like Paxos that has proven difficult to understand. Key features of Raft include:
 
 \noindent \textbf{Strong leader:} The replication of log entries flow from the leader only. This simplifies log management, and enhances the leader role in Raft compared to other consensus protocols.
 
