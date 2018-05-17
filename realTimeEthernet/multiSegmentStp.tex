@@ -1,7 +1,24 @@
 \section{Multi-segment Ethernet and STP}
+\subsection{Multi-segment}
 
 To solve issues with collisions it is neccessary to split the network into different domains each with their own collision domains. This was made possible with the introduction of switches which segmented the network on the Link layer (OSI Level 2) in 1990 by Kalpana, which was later acquired by Cisco. The segmentation resulted in traffic no longer being broadcast across multiple nodes, and at the extreme each node is connected directly to a network switch forming a micro segment. In 1998 full 8 wire twisted pair wires were introduced which allowed for Pysical layer (OSI Level 1) segmentation as the cables were now full duplex. In the years since the price of CAT 5 cables and switches has dropped, and eventually the older technologies were phased out in most networks, removing all potential for collisions. To ensureAs a consequence of the collision free networks it became possible to exceed 10 Mbps and modern networking cards support 100 Mbps at a minimum and 1 Gbps is becoming more common. To insure thees network speeds there was made spanning-tree protocol (STP) which is building for making forwarding topology free-loop and for reducing broadcast radiation. 
-\begin{figure}[h!]\label{}
+
+\subsection{Spanning-tree protocol}
+The idea behind the STP protocol is to have only one way form one node to another one. As in the Figure\ref{fig:STP} A is before the algorithm B is after the algorithm. The STP finds the fastes and loop-free path between two nods.
+
+Kruskal's algorithm sequence as flow:
+
+\begin{enumerate}
+	\item sorted the nodes with edges with respect of their weights
+	\item adding the lowest weight edge form the list, removed form the list 	
+	\item adding second lowest weight edge if edge's dos not form the circle
+	\item removing the edge form the list  
+	\item repeat 2-4 step till the last edge  
+\end{enumerate}
+
+The algorithm was made during the course using networkx library in python the Figure\ref{fig:STP} shows graphical example for our implementation of Kruskal's algorithm.
+
+\begin{figure}[H]\label{}
 	\centering
 	\includegraphics[scale=0.5]{realTimeEthernet/Image/STP.png}
 	\caption{Spanning-tree protocol}
@@ -9,4 +26,4 @@ To solve issues with collisions it is neccessary to split the network into diffe
 \end{figure}
 % code for the Kruskal's algorithm is in the realtimeetherne folder 
 
-The idea behind the protocol is to have only one way form one node to another one. As in the \ref{fig:STP} A is before the algorithm B is after the algorithm. The STP finds the fastes and loop-free path between two nods.
+
