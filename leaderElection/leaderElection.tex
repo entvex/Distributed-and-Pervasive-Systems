@@ -5,3 +5,15 @@ A leader performs sort of the conductor role in a distributed system and is resp
 \input{leaderElection/bullyandringalgorithm}
 
 \input{leaderElection/otherwaystochoosealeader}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{leaderElection/data}
+	\caption{The bully election on the right and to the left A ring algorithm}
+	\label{fig:data}
+\end{figure}
+As seen in figure \ref{fig:data} on the left. The bully election algorithm starts by (a) Process 1 holds an election because it notices 4 has crashed. (b)
+Processes 2 and 3 respond, telling 1 to stop. (c) Now 2 and 3 each hold an
+election. (d) Process 3 tells 2 to stop. (e) Process 3 wins and tells everyone.
+
+As seen in figure \ref{fig:data} on the right. The ring algorithm and it beings by 2 and 5 start election message independently. Both messages continue to circulate the ring and at some point both messages will go all the way around. In the last step not shown on the figure 2 and 5 convert their election messages to coordinator message and then all processes recognize highest numbered process as new coordinator.

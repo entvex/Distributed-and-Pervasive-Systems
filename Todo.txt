@@ -1,5 +1,5 @@
 2.1.1 Finite automota for (un)deterministic systems - Nowhere to be found
-- Ole = In progress
+- Ole = Complete
 
 3.?.? PTP missing, should be on git somewhere
 - David = Complete
@@ -11,13 +11,13 @@
 - Henrik = Complete
 
 4.2 Multi-segment Ethernet and STP, should be put into their own subsection/subsubsection
-- Titas =In Process
+- Titas = Done
 
 4.2 STP - More details about steps, if space is available.
-- Titas = In Process
+- Titas = Done
 
 8.1 A picture of the bully and ring algorithm would be cool
-- David = In Process
+- David = Done
 
 9 Intro needs to be reworked for Hybrid Positioning
 - Titas = Done
@@ -45,4 +45,4 @@ Gather code used in the exercises
 
 
 Appendix and reference work
-- Henrik = In Process
+- Henrik = Complete

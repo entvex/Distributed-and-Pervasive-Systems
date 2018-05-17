@@ -1,0 +1,63 @@
+
+DNS fundamentals:
+1. To be able to address a specific computer on the network. Retrieve some specific information or access a specific resource.
+2. Compare each naming architecture:
+	Flat: Each name is unique, and denotes a specific host. Relatively simple system, but hard to make scale. The name does not indicate where the host is located and thus finding the indicated host in a larger network is difficult.
+	Structured: Each name is unique in it's context. With names being contextualized through their super. Locating a server requires working down from the lowest known host. Due to the contextual nature structured naming systems can be very scalable.
+	Attribute: The purpose is to be able to retrieve a piece of information despite not knowing what it's name is. (fx. looking up a name in a telephone register using the number). Can be very resource intensive as an exhaustive search through the attribute list must be performed for each search, something that can be very time consuming when multiple servers must be contacted for distributed searches.
+3. The purpose of DNS is to convert from a human readable structured name to a computer processable name.
+4. The DNS name hierarchy is based around distributed responsibilities with supers encompasing and directing traffic to their subs. With root servers knowing where top level domain servers are, and TLDS knowing where domain servers are.
+	- Missing the managerial level, which parts of the group insist are not part of the DNS system.
+5. DNS servers can delegate sections of their subdomains to sub servers. The original is in that case the sub's super. The sub is referred to as a zone, and is then responsible to it's super for managing the zone.
+6. What is ...:
+	i(BIND) A popular implementation of DNS.
+	ii(A caching server) A server that stores previous DNS search results to improve resonse time and reduce load on authoritative servers.
+	iii(A forwarder) A server that manages and caches all dns queries for a local network. This reduces network traffic beyond the server by stopping many DNS requests from having to go past the server.
+7. NOTE: This is an virtual machine
+	Address: The computer's local ip address and subnet
+	Gateway: The computer's default exit point, for leaving the current subnet.
+	DNS: The computer's first line DNS server. The server the computer will use for resolving DNS requests.
+8. It works
+9. Host lookup table
+	Is queried first, before attempting to resolve the name externally.
+	First suggested by Peggy Carp in 1971
+10. TLD - Top level domain. A server at the head of a zone at the national DNS zone
+11. FQDN names end with a dot because the root level name is unnamed.
+12. A records are address registries which map a name to an address.
+
+Name resolution:
+1. Explain recursive and iterative resolution:
+	Recursive resolution: The top name server is responsible for resolving the name, by asking it's subs to provide a result. This has benefits in reducing traffic from the client and allowing the name severs to employ caching. The downsides are that responding to a query becomes considerably more expensive for the server.
+	Iterative resolution: The client is responsible for resolving the name, by asking each server in turn as it works it's way down to the server capable of resolving the name. This has benefits in being very simple for the name servers, who just need to reply with an appropriate sub servers address. The downsides are that there can be no caching and the client needs to send multiple requests over the internet searching for a server to resolve the name.
+2. How may DNS caching be more effective in recursive vs. iterative resolution?
+	Recursive can have caching to speed up resolutions, while iterative does not.
+3. Why are client-side communication costs reduced in recursive name resolution?
+	Because the server handles resolving the name. First returning a result to the client once a final result has been found.
+4. Why does recursive resolution put higher performance demands on each name server?
+	Because instead of only referring to it's own records the server asks it's subs to resolve the name further until the final name has been found.
+
+DNS Security extensions:
+1. What are the principles of DNS Security Extensions and why are they needed?
+	To authenticate DNS servers by having subs leave an authentication key with their super. And allows the name resolver to verify that the result is identical to the result provided by the zone owner and served on an authoritative DNS server.
+2. What is a signed zone?
+	A zone that has been signed as being up to date at the indicated time. 
+3. What common types of security vulnerabilities are hindered by DNSSEC?
+	DNS Cache poisoning. Not possible since false results can not be signed and verified
+	DNS Spoofing. Not possible since publically available results are signed and verified.
+
+1. Install BIND on a Linux machine and check the installation
+	Installed fine
+
+2. Configure a caching name server and a forwarder
+	Edited named.conf.options. with example
+
+3. Use Google’s Name Bench to find a suitable public DNS server to forward to
+	8.8.8.8
+
+4. Test that forwarding works as intended
+	It works :O
+
+5. Test whether the DNS lookup time is reduced by caching
+	Large improvement in response time.
+
+
