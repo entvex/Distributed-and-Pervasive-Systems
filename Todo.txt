@@ -11,7 +11,7 @@
 - Henrik = Complete
 
 4.2 Multi-segment Ethernet and STP, should be put into their own subsection/subsubsection
-
+- Titas =In Process
 
 4.2 STP - More details about steps, if space is available.
 - Titas = In Process
