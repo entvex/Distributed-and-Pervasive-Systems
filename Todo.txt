@@ -1,5 +1,5 @@
 2.1.1 Finite automota for (un)deterministic systems - Nowhere to be found
-
+- Ole = In progress
 
 3.?.? PTP missing, should be on git somewhere
 - David = Complete
