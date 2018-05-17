@@ -8,7 +8,7 @@
 - Henrik = Complete
 
 3.2.3 Add pictures about the process/math of PTP - offset correlation and delay correction 
-- Henrik = In Process
+- Henrik = Complete
 
 4.2 Multi-segment Ethernet and STP, should be put into their own subsection/subsubsection
 
@@ -23,12 +23,10 @@
 - Titas = In Process
 
 9.2 Add relative positioning about gaming!!!
-- David = In Done
+- David = Complete
 
 9.3 Make sure that predcit and correct steps are written about (might already be there).
 - Titas = In Process
-
-Glossary
 
 
 Itroduction
@@ -47,4 +45,4 @@ Gather code used in the exercises
 
 
 Appendix and reference work
-
+- Henrik = In Process
