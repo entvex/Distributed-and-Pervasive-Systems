@@ -7,7 +7,7 @@ The absolute positioning method is quit accurate but still it suffers from noise
 
 The Kalman filter was made by Rudolf E. Kalman. It was developed for Apollo mission to the moon, to track the location of the space shuttle. This method is still used, because it dos not require a lot of processing power and memory space. The reasoning is that the method dos not need to save any data apart the model of movement and and previews position. The process of filter is predict using model and previous position. After the prediction the measurement are coming and the filter is multiplying both Gaussian distribution. By multiplying the filter is correcting its estimation and making more precise location.
 
-	\begin{figure}
+	\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{positioning/positioning/DiagramKalman}
 	\caption{Kalmans filter principal}
