@@ -29,12 +29,12 @@ Invented by Leslie Lamport in 1978, it is an algorithm to order events in a syst
 
 This ensures that process $p_j$ will update its local logical clock newest global logical clock whenever it receives messages from other processes, allowing events to happen at a more consistent basis now that a given process uses the most up-to-date global clock to know when to fire.
 
-On Figure \ref{fig:lamport}, an example of three processes \textit{P1}, \textit{P2} and \textit{P3} are given with the lamport timestamp implementation. As can be seen in the example, $e \rightarrow h$ and $f \rightarrow k$, does not fulfill the requirements and their timestamps are therefor updated.
+In Figure \ref{fig:lamport}, an example of three processes are given, with the lamport timestamp implementation.
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{synchronization/logicalClock/fig/lamport.png}
-	\caption{An example of the lamport timestamp correction. Blue numbers are the correction of the lamport timestamps, since $e \rightarrow h$ and $f \rightarrow k$ both were in wrong order.}
+	\includegraphics[width=0.3\linewidth]{synchronization/logicalClock/fig/lamport.pdf}
+	\caption{An example of the lamport timestamp correction, with three processes \textit{P1}, \textit{P2} and \textit{P3}. Blue numbers are the correction of the lamport timestamps, since $e \rightarrow h$ and $f \rightarrow k$ both were in wrong order.}
 	\label{fig:lamport}
 \end{figure}

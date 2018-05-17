@@ -8,4 +8,4 @@ The consensus problem is a fundamental problem in computer science and multi-com
 
 \noindent \textbf{Integrity:} If all correct processes propose the same value $v_i$, then all correct processes will decide $v_i$ as $d_i$.
 
-\noindent Now, if we assume that process $p_i$ can crash at arbitrary times during this consensus vote or become malicious, the process could potentially communicate wrong values to others hindering a consensus. This phenomenon is known as the Byzantine Generals Problem. Next we look at the Raft consensus algorithm protocol, that provides a template for fault-tolerant and reliable consensus negotiation among processes.
+\noindent Now, if we assume that process $p_i$ can crash at arbitrary times during this consensus vote or become malicious, the process could potentially communicate wrong values to others hindering a consensus. This phenomenon is known as the Byzantine Generals Problem\footnote{\cite{Lamport1982}}. Next we look at the Raft consensus algorithm protocol, that provides a template for fault-tolerant and reliable consensus negotiation among processes.

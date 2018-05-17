@@ -26,7 +26,7 @@ In a distributed system, we view middleware as one or multiple applications that
 	\item Publish-subscribe: Messages between nodes are published to topics based on type and sent to a centralized or distributed broker, which forwards messages to specific nodes, that have subscribe to that message type. This pattern provides space, time and flow decoupling.
 \end{itemize}
 
-\noindent The publish-subscriber pattern provides all of three mentioned traits and figure \ref{fig:pubsub} illustrates how a central broker (EventService) can use this pattern to archive space, time and flow decoupling. It works by subscribers registering at the broker for certain events or type of information by calling subscribe(). A publisher then publishes a message to the broker using notify(). If any subscribers have subscribed to that particular type of message or data, they have notified by the broker with notify().
+\noindent The publish-subscriber pattern provides all of three mentioned traits and figure \ref{fig:pubsub}\footnote{\cite{Eugster2003}} illustrates how a central broker (EventService) can use this pattern to archive space, time and flow decoupling. It works by subscribers registering at the broker for certain events or type of information by calling subscribe(). A publisher then publishes a message to the broker using notify(). If any subscribers have subscribed to that particular type of message or data, they have notified by the broker with notify().
 
 \begin{figure}[h!]\label{}
 	\centering

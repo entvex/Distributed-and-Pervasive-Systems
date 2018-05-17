@@ -26,7 +26,9 @@ the absence of partitions, how does the system trade off latency \textbf{L}
 and consistency \textbf{C}? \textbf{( REF TIL Fischer DIPS S08 Consistency Slides.pdf side 13 ).}
 
 \noindent Apache's \textbf{Cassandra} database system is a PA/EL system. If a partition happens, it will give up consistency for availability, and during normal operation gives up consistency for lower latency. Google's \textbf{BigTable}
-follows ACID\footnote{ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc.} hence PC/EC. It will refuse to give up consistency and pay the price in terms availability and latency costs to achieve it. \textbf{MongoDB} can be classified as a PA/EC system. In the default configuration, the system guarantees reads and writes to be consistent. When it faces a  \textbf{( REF TIL 2012 Abadi ConsistencyTradeoffsInModernDistributedDatabaseSystemDesign.pdf side 42 ).}
+follows ACID\footnote{ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc.} hence PC/EC. It will refuse to give up consistency and pay the price in terms availability and latency costs to achieve it. \textbf{MongoDB} can be classified as a PA/EC system. In the default configuration, the system guarantees reads and writes to be consistent. When it faces a  \textbf{( REF TIL 2012 Abadi
+	%TODO REF:
+	 ConsistencyTradeoffsInModernDistributedDatabaseSystemDesign.pdf side 42 ).}
 %TODO Denne fucking table vil ikke stå under texten!?!?!
 When a system have a network partition happen to it there is a few options for replication the data.
 \begin{enumerate}
