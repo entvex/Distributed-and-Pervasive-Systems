@@ -43,3 +43,17 @@ stratum 1 servers, also between same level stratum severs can be interface to ea
 \noindent Cons requires at lest one interface through wide area network which leads to security issues. Below stratum
 15 devices are held unsynchronized.
 Cons requires at lest one interface through wide area network which leads to security issues. Below stratum15 devices are held unsynchronized.
+
+\subsection{Precision Time Protocol - IEEE 1588}
+
+Precision Time Protocol(PTP) is an open standardized protocol for synchronizing time, published by the IEEE under the numerical value of 1588. PTP is one of the more precise synchronization standards in general use and was designed to allow for high precision while being easy to install and requiring minimal resources. PTP is a master slave protocol with the master holding a correct clock value, the master will inform the slave of the time.
+
+The protocol is built from two procedures that occur in parallel, first a syntonization is run to get the clocks running at the same speeds, and secondly a calculation of the slave's offset from the master. 
+\begin{enumerate}
+	\item Send periodic messages to the slave allowing the slave to adjust it's clock speed to match.
+	\item Calculate the slave's offset from the master and the delay introduced during transmission. As a side effect of these calculations the clock value is set as t - offset.
+\end{enumerate}
+
+This split in traffic and periodic maintenance is well suited to packet switched networks as there is no need for dedicated lines of communication and the line can easily be shared with other applications. A second benefit of the small resource footprint of PTP is that it allows a single server to synchronize with multiple slaves, while being synchronized in turn. The system is infinitely hierarchical, with masters having the ability to simultaneously being slaves to a different master, this means that the protocol can be infinitely scaled up with relatively small overhead.
+
+PTP is excellent for use in systems where extremely high precision is required  inside the realtime domain. Especially in applications for scientific, measurement and control systems.
