@@ -2,7 +2,7 @@
 
 Ethernet was developed at Xerox PARC in 1973 and commercially introduced in 1980 as the so-called "DIX" (Digital, Intel, Xerox) standard with a bandwidth of 10Mbit/s, using coaxial cables and described as a technology for local-area networks. Ethernet became dominant over Token Ring in the end of the 1980's, because Ethernet was more adaptive than these proprietary protocols and quickly switched to the twisted-pair wiring (UTP, unshielded twisted pair), reducing cost, complexity and boosting transmission rates.
 
-\noindent The Ethernet standard was intended for a typical office environment with workstations, but did also support PC-based controllers, PLC's and other devices, because it was an open-standard and easily accessible. Figure X illustrates a Plant-Control-Device environment, with higher response times at the plant level, more data transfers but less frequency.
+\noindent The Ethernet standard was intended for a typical office environment with workstations, but did also support PC-based controllers, PLC's and other devices, because it was an open-standard and easily accessible. Figure \ref{fig:plantcontroldevice} illustrates a Plant-Control-Device environment, with higher response times at the plant level, more data transfers but less frequency.
 
 \begin{figure}[h!]\label{}
 	\centering
@@ -25,14 +25,13 @@ Ethernet was developed at Xerox PARC in 1973 and commercially introduced in 1980
 	\item c is a local node counter, c $\in$ [1;$c_max$], and is reset after successful transmission. $c_max$ = 10 in the IEEE 802.3 CSMA/CD standard. Truncation means that after a certain number of increases, exponentiation stops and is reset.
 \end{itemize}
 
-\noindent For 10Mbit/s Ethernet, $T_{slot}$ = 51.2$\mu$s and decreases when transmission rates $\longrightarrow$ $\propto$. Figure \ref{fig:csmacd} shows how a collision on the wire, how the two re-transmissions collide and the random back-off timer in effect.
+\noindent For 10Mbit/s Ethernet, $T_{slot}$ = 51.2$\mu$s and decreases when transmission rates $\longrightarrow$ $\propto$. Figure \ref{fig:csmacd} shows a collision on the wire, how the two re-transmissions collide and the random back-off timer in effect.
 
-\begin{figure}[h!]\label{}
+\begin{figure}[H]\label{}
 	\centering
 	\includegraphics[scale=0.5]{realTimeEthernet/CSMACD.png}
 	\caption{CSMA/CD in effect with random re-transmissions upon collisions.}
 	\label{fig:csmacd}
 \end{figure}
-
-\noindent A conceivable drawback of the back-off algorithm is that it can introduce medium monopolization by one node in a network, $Node_{a}$, depriving another node, $Node_{b}$ of time to send. As the back-off algorithm is random, if $Node_{a}$ is more successful than $Node_{b}$ at sending packets, $Node_{b}$'s collision counter might increase beyond that of $Node_{a}$, resulting in exponential wait times for $Node_{b}$. In the next chapter we look at how to solve collisions using network segmentation.
+\noindent A conceivable drawback of the back-off algorithm is that it can introduce medium monopolization by one node in a network, $Node_{b}$, depriving another node, $Node_{a}$ of time to send. As the back-off algorithm is random, if $Node_{b}$ is more successful than $Node_{a}$ at sending packets, $Node_{a}$'s collision counter might increase beyond that of $Node_{b}$, resulting in exponential wait times for $Node_{a}$. In the next chapter we look at how to solve collisions using network segmentation.
 
