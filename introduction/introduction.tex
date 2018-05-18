@@ -1,25 +1,7 @@
 \chapter{Introduction} \label{ch:introduction}
 
+In recent years we have seen an increase in the number of systems being split up and distributed, as the need of offloading the workload from a single computing entity to multiple has grown. From the first mechanical computers in the late 40's, past Apple's Macintosh in 1984 and when the first smartphones start appearing in the 2000's, to the era of modern cloud computing, we have seen a shift from centralized and single processor computing to distributed with multiple processors involved. This is due to a few aspects: The costs of hardware and power requirements have gone down (Koomey's law)\footnote{\cite{Koomey2011}}, making it more feasibly to link multiple computers instead of buying one large. Modern systems require a high degree of fault tolerance, which distributing a system can assist with. Also it opens up for improved concurrency and parallelism when you can allocate computing tasks to multiple node, facilitated by the fact that the storage capabilities of computers are increasing too (Kryder's law)\footnote{\cite{Walter2005}}.
 
-Key points:
+Along with distributed computing comes pervasive systems - to have computers and technology appear anytime and everywhere require to some extent a distributed system. The smart home, for example, has multiple nodes and sensors placed indoors to detect movement, hear voice commands and relay instructions often to bigger and more complex systems. When the owner is asking for something, the system must decipher: Who is asking? What is he asking about? Where is he right now? This requires interoperability and multiple processors to work together.
 
-    Importance of distributed systems 
-
-    Moore's law
-        Transistor size.
-
-        The number of transistors on ICs doubles approx. every two years, i.e. exponential growth. (Moore's 2nd / Rock's law: the cost of a semiconductor chip fabrication plant doubles every four years.)
-
-    Koone's law
-        Drop in power requirements per processor task
-        
-        Figure: The no. of computations per Joule of energy is doubling approx. every 1.57 years. Koomey: at a xed computing load, the amount of battery you need will fall by a factor of two every year and a half."
-
-    Kryder's law
-        Hard disk space growth
-
-        An exponential increase in disk capacity at constant form factor aka. areal density (measure of the quantity of bits that can be stored on a given length of track, area of surface, or volume of a storage medium).
-    
-    What do we expect to learn from this course?
-
-    Where would we find these theories in practice?
+Computers are getting more powerful every day (Moore's law)\footnote{\cite{Moore1965}} and now becoming more distributed than we have seen before. In this project we will explore important concepts of distributed systems, some of the methods and algorithms used and how various applications built on top of a distributed network topology.
