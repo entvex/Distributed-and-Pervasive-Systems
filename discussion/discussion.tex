@@ -1,23 +1,25 @@
 \chapter{Discussion} \label{ch:discussion}
 Throughout this report, different technologies have been studied in conjunction with the development of distributed and pervasive systems. The different concepts that have been studied all provide different aspects of distributed and/or pervasive systems. The technologies that have been covered, have mainly been technologies that can be used in conjunction with distributed systems.
 
-In chapter \textbf{\ref{ch:realTimeComputing} Real-Time Computing}, the aspect of interest is have been finite and timed automatas, process scheduling and resource control. The chapter gives a good overview of the solutions to problems that can occur in distributed systems, with processes and resources shared between the internal systems.
+In chapter \textbf{\ref{ch:realTimeComputing} Real-Time Computing}, the aspects of interest are finite and timed automatas, process scheduling and resource control. The chapter gives a good overview of the solutions to problems that can occur in distributed systems, with processes and resources shared between the internal systems.
 
 In chapter \textbf{\ref{ch:synchronization} Synchronization}, the concepts of logical and real clocks are inspected. Throughout the chapter synchronization of different parts in the system are studied, with concepts like the Lamport timestamps, for logical clocks, NTP and PTP, for real clocks. The chapter gives an overall picture of the solutions for systems with the need of synchronization.
 
-In chapter \textbf{\ref{ch:realTimeEthernet} Real-Time Ethernet}, 
+In chapter \textbf{\ref{ch:realTimeEthernet} Real-Time Ethernet}, the Ethernet protocol is studied, from early stages to present time. To elaborate on the subject of the Ethernet, the spanning tree protocol is defined, which the multi-segment Ethernet uses to ensure network speeds. 
 
-In chapter \textbf{\ref{ch:middleware} Middleware}
+In chapter \textbf{\ref{ch:middleware} Middleware}, communication concepts for internal systems are studied. The primary subject of interest is different versions of DDS. More often than not, distributed systems work with systems that can't communicate without hardware or software drivers. These drivers for communication are what is defined as the middleware.
 
-In chapter \textbf{\ref{ch:consistency} Consistency}
+In chapter \textbf{\ref{ch:consistency} Consistency}, consistency concepts of distributed systems are studied. CAP and PACELC are both theorems that define what possibilities there are in case of internal partitioning of the distributed system. The chapter end up with five consistency models being elaborated, all having their own pros and cons.
 
-In chapter \textbf{\ref{ch:faultToleranceandconsensus} Fault Tolerance and Consensus}
+Chapter \textbf{\ref{ch:faultToleranceandconsensus} Fault Tolerance and Consensus}, elaborate on the basic principles of fault tolerance and consensus problems. The chapter end with the Raft algorithm being specified, which is an algorithm much more simple than the commonly known Paxos algorithm.
 
-In chapter \textbf{\ref{ch:leaderElection} Leader Election}
+In chapter \textbf{\ref{ch:leaderElection} Leader Election}, the concepts of leaders in distributed systems and decision on which part of the system is or becomes the leader, are studied. Two algorithms are elaborated, the bully algorithm and the ring algorithm, which both define a solution for the leader election.
 
-In chapter \textbf{\ref{ch:positioning} Positioning}
+In chapter \textbf{\ref{ch:positioning} Positioning}, the idea of positioning of objects in defined spaces are studied. The position of objects can be calculated through the help of different methods, in pervasive systems. The methods of interest are ToTAL, dead reckoning and the Kalman filter.
 
-All of the above technologies and concepts all matter when talking about distributed and pervasive systems. It is not simple to use one of the concepts without also using other in the overall system, they all reference to each part of an overall system and cannot be forgotten. 
+All of the above technologies and concepts all matter when talking about distributed and pervasive systems. It is not simple to use one of the concepts without also using other in the overall system, they all reference to each part of an overall system and cannot be forgotten.
+
+This report gives a good overview of concepts of distributed and pervasive systems, and in a world with unlimited amounts of data, computational power can become problematic factor for basic systems. Having the knowledge of how to create greater systems, by making smaller, less expensive, systems work together on specific tasks, can help on utilizing the data and gain further knowledge.
 
 %Key points:
 
