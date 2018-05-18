@@ -8,7 +8,7 @@ The CAP stands for Consistency, Availability and Partition Tolerance, and these 
 	\label{fig:cap_triangle}
 \end{figure}
 
-The CAP theorem says, that a distributed system, can only have up to two of these attributes fulfilled at a given time. On Figure \ref{fig:cap_proof} the proof, of the three scenarios, is illustrated using the following examples. Case A; there is a partition between Node A and Node B. The new data that is sent to Node A can not be read from Node B, therefore the system is not consistent. Case B; there is a partition between Node A and Node B. Since the new data can not be sent between the nodes then Node A will reject the new data, this makes the system not available. Case C; there is a partition between Node A and Node B the system is in an undefined state, therefore the system is not partition tolerant.
+The CAP theorem says, that a distributed system, can only have up to two of these attributes fulfilled at a given time. On Figure \ref{fig:cap_proof} the proof, of the three scenarios, is illustrated using the following examples. Case A; there is a partition between Node A and Node B. The new data that is sent to Node A can not be read from Node B, therefore the system is not consistent. Case B; there is a partition between Node A and Node B. Since the new data can not be sent between the nodes then Node A will stop responding to queries, this makes the system not available. Case C; there is a partition between Node A and Node B the system is in an undefined state, therefore the system is not partition tolerant.
 
 \begin{figure}[h!]
 	\centering
