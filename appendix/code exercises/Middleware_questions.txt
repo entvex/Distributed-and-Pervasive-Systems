@@ -1,0 +1,46 @@
+Remote Method Invocation
+1. What is Remote Method Invocation (RMI) and what is the purpose of RMI?
+    This is a RPC call in a java way. When using this it handles all of the bolder plating( network set up and tear down, data passing etc )
+
+2. Discuss the relationship between Remote Procedure Call and Remote Method Invocation
+    In java we use methods we translate RPC into Remote Method Invocation.
+
+3. Discuss Remote Procedure Call/Method Invocation in relation to space, time, and flow decoupling
+    Space
+        You need to know the addresse of the part you wanna call. It's p2p ( point 2 point )
+    Time
+        When it calls the methods it is blocking waiting for the response aka synkronus 
+    Flow
+        On the client there is no decoupling because we send the message and we expect a response right away. ( Fails ) 
+        On the server is flow devopuled because it does not get block it self on a request. ( It just answers when it gets a request ) ( Passes )
+
+
+4. Discuss the role of Remote Procedure Call/Method Invocation in distributed systems
+    Allows there to be transparencies for software using the system, leaving the details of communication to the middleware.   
+
+5. What is a Java Virtual Machine (JVM)?
+    A hardware abstraction created in the mid 90's to allow programs to run on different cpu's in a time before chipset standardization was a thing.
+
+6. What is a remote object?
+    An object provided by the Java Remote Method Invocation (Java-RMI) system to allow java object oriented software to operate on objects stored in a different process.
+    
+7. Discuss the three main layers in the RMI architecture, i.e.
+    - Stub and skeleton layer
+        Stubs and skeletons provide compiler verification support for Java-RMI. Specifying the interface the remote function call allowing the client to invoke the function correctly.
+    - Remote Reference layer
+        Provides location transparency to the system.
+    - Transport layer
+        Endpoint: Port
+        Channel: Socket
+        Connection: TCP connection.
+        Transport: Writer/Reader to/from the Connection.
+
+8. What is a remote interface?
+    An access point for the provided resource, hosts endpoints and skeletons.
+
+9. What is serialization?
+    Converts object data to a serialized data string that can be transferred through the network.
+
+10. What is a RMI Registry?
+    A listing of available methods that can be invoked on the known hosts.
+

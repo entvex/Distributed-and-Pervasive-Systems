@@ -1,0 +1,60 @@
+Switched Ethernet
+1. Discuss the benefits of micro-segmentation
+    It removes network collisions by only having each wire as its own segment. 
+
+2. What kind of network device offer micro-segmentation capabilities?
+    Switch and routers.
+
+    
+3. Discuss the role of CSMA/CD in fully switched (full duplex) Ethernet
+    It has no role in moderen networks.
+
+4. Why are latency and packet delay variations of concern in switched Ethernet?
+    Switches use some extra processing time because they have to look at the MAC address and route the packets to the right place.
+    When we have many Switches it all adds up
+
+5. How may latency and packet delay variations influence dead-line guarantees of a realtime system based on Ethernet?
+    The switchs and routers are all using more time to route the packets in the network. Also if the network is loaded with a lot of traffic then dead-lines are hard to meet.     
+
+    
+6. How does overflow and overflow-prevention in switches impact predictability of worstcase transmission time bounds?
+    
+    
+
+7. Discuss the purpose of the Spanning Tree algorithm
+    To prevent broadcast loops where each switch attempts to route a package to it's destination by broadcasting in circles.
+    
+
+8. Kruskal’ s minimum-spanning-tree algorithm
+    - Implement Kruskal’ s minimum-spanning-tree algorithm in Python (use e.g. scipy.sparse.csgraph or NetworkX) and demonstrate it works via one or more examples.
+        Done.
+    - What does “greedy” mean in regards to an algorithm, and what makes Kruskal’ s minimum-spanning-tree algorithm “greedy”
+        A greedy algorithm operates on a principle of taking the lowest cost edge as being the optimal solution. This is a work around P=NP that would be the optimal solution.
+    - Argue for the time complexity of Kruskal’ s minimum-spanning-tree algorithm O(E logE) where E is the number of edges.
+        A couple of loops through the edges and quicksort.
+
+Real time Ethernet
+
+1. Discuss the motivation for having Ethernet as a field-bus technology
+    Hardware is cheap and easily available, with a sufficient data throughput. Making maintenance and production cheap. The protocol is also extremely widely available making getting developers easy.
+    
+2. Discuss the relevance of leaving bandwidth for normal asynchronous traffic in real-time Ethernet deployments
+    To allow other asynchronous applications to get access to the network, fx. user interfaces and informative reporting services.
+
+3. Discuss the Ethernet Frame structure and how it supports real-time Ethernet methods
+    The 802.1Q tag allows the data to be marked as high/low priority or at least classified in some manner.
+        Different VLANs can be prioritised based on the value.
+    The Ethertype tag allows the frame to inform the switch as to which ethernet protocol is being used.
+
+4. Discuss the real-time facilitating techniques applied in ProfinetIRT, EtherCAT, Ethernet, Powerlink, Sercos III, and EtherNet/IP
+    By making adjustments to the data stack and optimising the protocol/hardware for specific applications improvements. 
+    A dedicated protocol/hardware is always faster and more expensive then a more general solution.
+    
+5. How is overhead/payload ratio reduced in EtherCat?
+    By removing certain unneccessary parts of the standard ethernet protocol EtherCat can improve their latency.
+    
+6. Is the Ethernet frame just broadcasted to all nodes in EhterCAT?
+    Yes, EtherCat runs on a ring topology system.
+    
+7. Why is the Precision Time Protocol important to Ethernet/IP?
+    When a command is sent, it includes a time for when it should happen. This leads to high requirements for time precision.

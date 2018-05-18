@@ -1,0 +1,25 @@
+
+
+1. Discuss how deterministic finite automata (DFA) define determinism
+	Every state has at most one exit transition for each element in the alphabet. Each state is well defined and has a well defined set of actions.
+
+2. Discuss how non-deterministic finite automata (NFA) define non-determinism
+	By allowing each state to have more than 1 exit transition for some members of the alphabet in each state.
+
+3. Discuss the definition you have been presented with of timed finite automata (TFA)
+	A TFA is a DFA with clock constraints. By adding the clock we can prematurely reject the FA if the time limit is exceded.
+
+4. Discuss whether the TFA definition allows for non-determinism:
+	It does not allow it. The transition function does not allow for a set of results.
+
+5. Discuss why TFA can be used to model distributed real-time systems
+	Because by adding the clock mechanism we can add time constraints and time limits to calculations.
+
+6. Discuss the relationship between (non)determinism and dead-line guarantees in real-time systems
+	With determinism we can model and expect a stable processing time.
+	With non-determinism we can model the process, but not make any guarantees for processing time.
+
+
+Scheduling:
+
+19.1: J1 (0, 1, 1), J2 (0, 1, 2), J3 (0, 2, 3)

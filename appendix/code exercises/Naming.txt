@@ -1,0 +1,35 @@
+Need for being able to consistently refer to an entity. An entity can be anything that can be operated on.
+Names are not entities, constant or consistent.
+
+Names are resolved -> When we translate the name into data or an actionable resource
+
+IP-address is an attribute
+
+Naming navigation -> Getting assistance from other servers to resolve a name
+
+ - Flat names
+	Good for small systems
+
+ - Structured names
+	Highly scalable
+		fx. DNS
+			Mediator between humans and computers
+				13 root name servers
+					locations are confidential
+				example.com is a subdomain of com
+		FQDN - unambigous and exact name for a specific computer
+			Ends with a dot '.'
+		The name server that loads a complete zone are called authorative for that zone.
+
+ - Attribute based names
+	Hard to scale.
+	Directory systems.
+	X.500 standard	ISO-1997
+		Includes LDAP
+
+This is a bottomless rabbit hole.
+
+
+BIND DNS: TODO: READ SLIDES SELF
+
+Hvað er vu.nl?
