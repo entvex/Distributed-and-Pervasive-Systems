@@ -22,7 +22,7 @@ Any NFA can be converted into a DFA using an algorithm known as powerset constru
 \begin{figure}[H]\label{}
     \centering
     \includegraphics[scale=0.5]{realTimeComputing/fig/NFA.png}
-    \caption{An NFA that is equivalent to the DFA in Image \ref{fig:dfaSample} in the previous chapter, with the same acceptance criteria.}
+    \caption{An NFA that is equivalent to the DFA in figure \ref{fig:dfaSample}}
     \label{fig:nfaSample}
 \end{figure}
 
@@ -39,8 +39,7 @@ A variant on DFA where in addition to the input stream, there are defined clocks
 \noindent In the TFA shown on figure \ref{fig:tfaSample}, the control will go from $s_0$ to $s_1$ when 'a'. In $s_1$ it can take any number of 'e' as long as t < 3. From $s_1$ it is possible to go to $s_4$ on 'e' as long as t < 2. From $s_1$ or $s_4$ control can be passed to $s_2$ on 'b' which must happen before t = 3. Finally control will be passed to $s_3$ on 'c' before t = 5.
 
 \subsection{Compare deterministic and non-deterministic automata}
-The difference between deterministic and non-deterministic automata lies in their focus of execution, with NFA the execution is operated as a sort of breadth first search algorithm as the execution spreads through the entire automata searching for an end state. DFA on the other hand will only ever operate in a single state and are therefore more manageable and predictable. When it comes to realtime computing, predictability is king.
+The difference between deterministic and non-deterministic automata lies in their focus of execution, with NFA the execution is operated as a sort of breadth first search algorithm as the execution spreads through the entire automata searching for an end state. DFA on the other hand will only ever operate in a single state and are therefore more manageable and predictable. When it comes to real-time computing, predictability is king.
 
 \subsection{Talk about timed automata and how they comply with deadlines}
-By adding clocks to deterministic automata the state machine gains the concept of time, which is neccessary to make any requirements regarding deadlines. By setting time limits to how long an execution can run the programmer can, during implementation, be aware of and work within the required time frames for each given state. This quantification of the available resources allows the system to utilize it's resources to the limit, while also staying sufficiently responsive. 
-
+By adding clocks to deterministic automata the state machine gain the concept of time, which is necessary to make any requirements regarding deadlines. By setting time limits to how long an execution can run the programmer can, during implementation, be aware of and work within the required time frames for each given state. This quantification of the available resources allows the system to utilize these to the limit, while also staying sufficiently responsive. 
